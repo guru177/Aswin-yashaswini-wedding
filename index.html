@@ -1,0 +1,3308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aswin &amp; Yashaswini</title>
+<meta name="theme-color" content="#f8e9d2">
+<link rel="preload" href="fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap">
+<style>
+@font-face{font-family:'Cinzel';font-weight:600;font-style:normal;font-display:swap;src:url(fonts/cinzel-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Pinyon Script';font-weight:400;font-style:normal;font-display:swap;src:url(fonts/pinyon-script-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-weight:700;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-700-italic.woff2) format('woff2')}
+:root{
+  --maroon:#7d1019;
+  --maroon-deep:#5a0a10;
+  --gold:#c8902e;
+  --gold-hi:#f5d68a;
+  --cream:#f8e9d2;
+  --cream-2:#fbf1e1;
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:#3a070b radial-gradient(ellipse at center,#6b1118 0%,#2a0508 100%);
+  font-family:'Cinzel',serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- HERO FRAME ---------- */
+.hero{
+  position:relative;
+  z-index:10;
+  width:min(100vw,480px);
+  height:100vh;height:100svh;
+  margin:0 auto;
+  overflow-x:clip;
+  overflow-y:visible;
+  /* design unit: 1 px of the 941 x 1671 artboard */
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+  background:#f8ead3;
+}
+@supports (height:100svh){ .hero{ --k:min(calc(min(100vw,480px) / 941), calc(100svh / 1671)); } }
+
+/* parchment */
+.paper{position:absolute;inset:0;z-index:-2;overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 38%, rgba(255,250,238,.95), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(238,200,150,.38), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 10%, rgba(238,200,150,.35), transparent 70%),
+    linear-gradient(180deg,#f9ead3 0%,#fbf0df 48%,#f8ead3 100%);
+}
+.paper::after{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .4  0 0 0 0 .22  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* slow golden light */
+.glow{position:absolute;left:50%;top:34%;width:calc(1400*var(--k));aspect-ratio:1;z-index:-1;
+  transform:translate(-50%,-50%);pointer-events:none;
+  background:conic-gradient(from 0deg,transparent 0 8%,rgba(255,214,140,.22) 10%,transparent 13% 25%,rgba(255,214,140,.18) 28%,transparent 31% 45%,rgba(255,214,140,.2) 48%,transparent 52% 70%,rgba(255,214,140,.18) 73%,transparent 76%);
+  -webkit-mask:radial-gradient(circle,#000 0 25%,transparent 62%);mask:radial-gradient(circle,#000 0 25%,transparent 62%);
+  animation:spin 60s linear infinite, fadeIn 2s 1.6s both;}
+
+/* positioning helpers (artboard px) */
+.abs{position:absolute}
+.par{}
+img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+
+/* ---------- TOP DECOR (anchored to hero top) ---------- */
+.g1{left:calc(40*var(--k));top:calc(-8*var(--k));width:calc(64*var(--k));--d:6}
+.g2{left:calc(120*var(--k));top:calc(-183*var(--k));width:calc(58*var(--k));--d:9}
+.g3{left:calc(-20*var(--k));top:calc(-30*var(--k));width:calc(54*var(--k));--d:4}
+.corner{right:calc(-24*var(--k));top:calc(-28*var(--k));width:calc(330*var(--k));--d:7}
+
+.drop{animation:drop 1.5s cubic-bezier(.34,1.45,.5,1) both}
+.sway{transform-origin:50% 0;animation:sway var(--sw,4.6s) ease-in-out infinite alternate}
+.g1 .drop{animation-delay:1.35s}.g1 .sway{--sw:4.2s}
+.g2 .drop{animation-delay:1.55s}.g2 .sway{--sw:5.1s;animation-delay:-1s}
+.g3 .drop{animation-delay:1.7s}.g3 .sway{--sw:3.7s;animation-delay:-2s}
+.corner .drop{animation-delay:1.45s;animation-name:dropR}
+.corner .sway{transform-origin:85% 0;--sw:5.6s}
+.ring .sway{animation:ring 1.8s cubic-bezier(.3,.6,.3,1) both!important}
+
+/* ---------- BOTTOM DECOR (anchored to hero bottom, bridging smoothly over story top) ---------- */
+.lotus{bottom:calc(-186*var(--k));width:calc(370*var(--k));--d:5;z-index:15;pointer-events:none}
+.lotus.l{left:calc(-34*var(--k))}
+.lotus.r{right:calc(-34*var(--k))}
+.lotus .rise{transform-origin:20% 75%;animation:rise 1.8s cubic-bezier(.2,.9,.25,1.15) both 2.3s}
+.lotus.r .rise{transform-origin:80% 75%;animation-delay:2.45s}
+.lotus .breathe{transform-origin:20% 75%;animation:breathe 6s ease-in-out infinite alternate 4s}
+.lotus.r .breathe{transform-origin:80% 75%;animation-duration:7s}
+.lotus.r img{transform:scaleX(-1)}
+
+.border{z-index:11;left:0;right:0;bottom:calc(-12*var(--k));height:calc(24*var(--k));
+  background:url(assets/orn-border.webp) repeat-x 0 50%/auto 100%;
+  animation:borderIn 1.4s cubic-bezier(.2,.8,.2,1) both 2.2s, borderRun 30s linear infinite 3.6s}
+.crest-b{z-index:12;left:50%;bottom:calc(-38*var(--k));width:calc(118*var(--k));margin-left:calc(-59*var(--k));
+  animation:pop 1s cubic-bezier(.3,1.6,.5,1) both 3.2s}
+.crest-b img{transform:scaleY(-1)}
+
+/* ---------- CONTENT STAGE (941 x 1671, centered) ---------- */
+.stage{position:absolute;left:50%;top:50%;
+  width:calc(941*var(--k));height:calc(1671*var(--k));
+  margin-left:calc(-470.5*var(--k));margin-top:calc(-835.5*var(--k));}
+.c{position:absolute;left:0;right:0;text-align:center}
+
+.crest{left:50%;top:calc(16*var(--k));width:calc(142*var(--k));margin-left:calc(-71*var(--k));--d:3}
+.crest img{animation:crestIn 1.3s cubic-bezier(.3,1.5,.5,1) both 1.6s, goldPulse 3.5s ease-in-out infinite 3s}
+
+.script{font-family:'Pinyon Script',cursive;color:var(--maroon);font-weight:400;line-height:1;
+  display:inline-block;clip-path:inset(-20% 100% -20% 0);animation:write 1.6s cubic-bezier(.6,.1,.3,1) forwards}
+.sree{top:calc(106*var(--k));font-size:calc(46*var(--k))}
+.sree .script{animation-delay:1.95s}
+.div1{left:50%;top:calc(162*var(--k));width:calc(360*var(--k));margin-left:calc(-180*var(--k))}
+.grow{transform:scaleX(0);animation:grow 1.2s cubic-bezier(.7,0,.2,1) forwards}
+.div1 .grow{animation-delay:2.5s}
+
+/* photo */
+.photo{left:calc(52*var(--k));top:calc(198*var(--k));width:calc(840*var(--k));--d:-4}
+.photo .reveal{clip-path:circle(0% at 50% 46%);filter:blur(14px) saturate(.4);transform:scale(1.12);
+  animation:photoIn 2.2s cubic-bezier(.6,0,.15,1) forwards 2.35s}
+.photo .kb{animation:kenburns 14s ease-in-out infinite alternate 4.6s}
+.sprig{--d:8}
+.sprig.l{left:calc(4*var(--k));top:calc(612*var(--k));width:calc(300*var(--k))}
+.sprig.r{left:calc(706*var(--k));top:calc(690*var(--k));width:calc(205*var(--k))}
+.sprig.l img{transform:scaleX(-1)}
+.sprig .bloom{transform-origin:15% 100%;transform:scale(.2) rotate(-25deg);opacity:0;animation:bloom 1.6s cubic-bezier(.3,1.4,.5,1) forwards 3.1s}
+.sprig.l .bloom{transform-origin:85% 100%}
+.sprig.r .bloom{animation-delay:3.3s}
+.sprig .flutter{transform-origin:20% 100%;animation:flutter 5s ease-in-out infinite alternate 4.8s}
+.sprig.l .flutter{transform-origin:80% 100%;animation-duration:6s}
+
+.div0{left:50%;top:calc(862*var(--k));width:calc(150*var(--k));margin-left:calc(-75*var(--k))}
+.div0 .grow{animation-delay:3.3s}
+.wedof{top:calc(884*var(--k));font-size:calc(72*var(--k))}
+.wedof .script{animation-delay:3.45s;padding:0 .1em}
+
+.name{font-family:'Cinzel',serif;font-weight:600;color:var(--maroon);line-height:1;letter-spacing:.01em;
+  font-size:calc(98*var(--k));position:absolute;left:0;right:0;text-align:center;white-space:nowrap}
+.name .ch{display:inline-block;opacity:0;transform:translateY(60%) rotateX(80deg);filter:blur(6px);
+  animation:letter .9s cubic-bezier(.2,.9,.25,1.2) forwards;animation-delay:calc(var(--base) + var(--i) * 70ms)}
+.n1{top:calc(1012*var(--k));--base:3.9s}
+.n2{top:calc(1242*var(--k));--base:4.75s;font-size:calc(100*var(--k))}
+/* shimmer sweep on names */
+.name::after{content:attr(data-text);position:absolute;inset:0;color:var(--gold-hi);pointer-events:none;
+  -webkit-mask-image:linear-gradient(105deg,transparent 42%,#000 50%,transparent 58%);mask-image:linear-gradient(105deg,transparent 42%,#000 50%,transparent 58%);
+  -webkit-mask-size:300% 100%;mask-size:300% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:120% 0;mask-position:120% 0;opacity:.95;mix-blend-mode:screen;
+  animation:shimmer 5.5s ease-in-out infinite;animation-delay:calc(var(--base) + 1.8s)}
+
+.amp-row{top:calc(1126*var(--k));height:calc(90*var(--k))}
+.amp{position:absolute;left:50%;top:0;transform:translateX(-50%);
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:calc(124*var(--k));line-height:.8;
+  background:linear-gradient(180deg,#e9b553,#b97a1c 55%,#8f5a12);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 0 rgba(245,200,110,0));
+  opacity:0;animation:ampIn 1.1s cubic-bezier(.3,1.7,.5,1) forwards 4.35s, ampGlow 3s ease-in-out infinite 5.6s}
+.scroll{position:absolute;top:calc(8*var(--k));width:calc(275*var(--k));height:calc(64*var(--k));overflow:visible}
+.scroll.l{left:calc(176*var(--k))}
+.scroll.r{right:calc(176*var(--k));transform:scaleX(-1)}
+.scroll path{fill:none;stroke:url(#gg);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw 1.6s cubic-bezier(.6,0,.3,1) forwards 4.2s}
+.scroll circle{fill:#c08a2c;opacity:0;animation:fadeIn .5s forwards 5.4s}
+
+.flour{left:50%;top:calc(1362*var(--k));width:calc(450*var(--k));margin-left:calc(-225*var(--k))}
+.flour .grow{animation-delay:5.35s}
+.date{top:calc(1452*var(--k));font-family:'Cinzel',serif;font-weight:600;color:var(--maroon);
+  font-size:calc(38*var(--k));letter-spacing:.22em;padding-left:.22em;white-space:nowrap;
+  opacity:0;animation:dateIn 1.4s cubic-bezier(.2,.8,.2,1) forwards 5.6s}
+.div2{left:50%;top:calc(1518*var(--k));width:calc(440*var(--k));margin-left:calc(-220*var(--k))}
+.div2 .grow{animation-delay:5.9s}
+
+/* sparkles + petals */
+.fx{position:absolute;inset:0;pointer-events:none;z-index:5;overflow:hidden}
+.spark{position:absolute;width:calc(22*var(--k));height:calc(22*var(--k));opacity:0;
+  background:radial-gradient(circle,#fff6d8 0 12%,rgba(255,215,120,.9) 22%,transparent 60%);
+  animation:twinkle var(--t,2.4s) ease-in-out infinite var(--dl,0s)}
+.spark::before,.spark::after{content:"";position:absolute;left:50%;top:50%;width:200%;height:2px;margin:-1px 0 0 -100%;
+  background:linear-gradient(90deg,transparent,#ffe9a8,transparent)}
+.spark::after{transform:rotate(90deg)}
+.petal{position:absolute;top:0;left:0;will-change:transform}
+
+/* ---------- INTRO CURTAIN ---------- */
+.curtain{position:absolute;inset:0;z-index:30;pointer-events:none;display:flex;overflow:hidden}
+.curtain .door{flex:1;background:
+   radial-gradient(ellipse at 100% 50%,rgba(255,200,120,.15),transparent 60%),
+   repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 2px,transparent 2px 22px),
+   linear-gradient(180deg,#8a141d,#5a0a10);
+  box-shadow:inset -6px 0 0 #c8902e, inset -9px 0 0 #6b1118;
+  animation:doorL 1.5s cubic-bezier(.75,0,.25,1) forwards 1s}
+.curtain .door.r{transform-origin:right;box-shadow:inset 6px 0 0 #c8902e, inset 9px 0 0 #6b1118;animation-name:doorR}
+.curtain .seal{position:absolute;left:50%;top:50%;width:calc(260*var(--k));margin:calc(-75*var(--k)) 0 0 calc(-130*var(--k));
+  animation:sealOut .8s ease-in forwards .85s}
+.curtain .seal img{animation:crestIn 1s cubic-bezier(.3,1.5,.5,1) both .05s;filter:drop-shadow(0 0 12px rgba(255,200,100,.6))}
+
+.tap-hint{position:absolute;left:0;right:0;bottom:calc(90*var(--k));text-align:center;z-index:6;
+  font:600 calc(20*var(--k))/1 'Cinzel',serif;letter-spacing:.3em;color:rgba(125,16,25,.55);
+  opacity:0;animation:hint 4s ease-in-out 7s 2 both}
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes drop{from{transform:translateY(-110%)}to{transform:none}}
+@keyframes dropR{from{transform:translate(30%,-105%) rotate(-12deg)}to{transform:none}}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+@keyframes ring{0%{transform:rotate(0)}15%{transform:rotate(9deg)}32%{transform:rotate(-7deg)}50%{transform:rotate(5deg)}68%{transform:rotate(-3deg)}84%{transform:rotate(1.5deg)}100%{transform:rotate(0)}}
+@keyframes rise{from{transform:translateY(60%) scale(.55) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes breathe{from{transform:scale(1) rotate(0)}to{transform:scale(1.035) rotate(1.2deg)}}
+@keyframes borderIn{from{clip-path:inset(0 50% 0 50%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes borderRun{to{background-position:calc(-156px * 4) 50%}}
+@keyframes pop{from{transform:scale(0) rotate(-90deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes crestIn{from{transform:scale(0) rotate(-120deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes goldPulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,200,90,0))}50%{filter:drop-shadow(0 0 10px rgba(255,200,90,.85))}}
+@keyframes write{to{clip-path:inset(-20% -5% -20% 0)}}
+@keyframes grow{to{transform:scaleX(1)}}
+@keyframes photoIn{to{clip-path:circle(80% at 50% 46%);filter:none;transform:none}}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.045) translate(-1%,-1.2%)}}
+@keyframes bloom{to{transform:none;opacity:1}}
+@keyframes flutter{from{transform:rotate(-2deg)}to{transform:rotate(2.5deg)}}
+@keyframes letter{to{opacity:1;transform:none;filter:none}}
+@keyframes shimmer{0%{-webkit-mask-position:120% 0;mask-position:120% 0}45%,100%{-webkit-mask-position:-20% 0;mask-position:-20% 0}}
+@keyframes ampIn{from{opacity:0;transform:translateX(-50%) scale(0) rotate(-200deg)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes ampGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(245,200,110,0))}50%{filter:drop-shadow(0 0 8px rgba(245,190,90,.9))}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes dateIn{from{opacity:0;letter-spacing:.7em;filter:blur(4px)}to{opacity:1;letter-spacing:.22em;filter:none}}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.2) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+@keyframes doorL{to{transform:translateX(-102%)}}
+@keyframes doorR{to{transform:translateX(102%)}}
+@keyframes sealOut{to{transform:scale(1.6);opacity:0}}
+@keyframes hint{0%,100%{opacity:0}30%,70%{opacity:1}}
+
+/* ---------- SCROLL DOWN CUE ON HERO ---------- */
+.scroll-cue{
+  position:absolute;left:50%;bottom:calc(46*var(--k));transform:translateX(-50%);
+  z-index:14;display:flex;flex-direction:column;align-items:center;gap:calc(4*var(--k));
+  background:none;border:0;cursor:pointer;color:var(--maroon);
+  font:600 calc(18*var(--k))/1 'Cinzel',serif;letter-spacing:.32em;padding:calc(6*var(--k));
+  opacity:0;animation:fadeIn 1.2s ease forwards 6.3s;
+}
+.scroll-cue span{padding-left:.32em;text-shadow:0 1px 6px rgba(248,233,210,.9)}
+.scroll-cue svg{width:calc(30*var(--k));height:calc(15*var(--k));stroke:var(--maroon);stroke-width:2.2;fill:none;
+  animation:cueBob 1.8s ease-in-out infinite}
+@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(6*var(--k)))}}
+
+/* =====================================================
+   SECTION 2: OUR STORY (UNDER HERO)
+   ===================================================== */
+.story{
+  position:relative;
+  z-index:8;
+  width:min(100vw,480px);
+  height:100vh;height:100svh;
+  margin:0 auto;
+  overflow-x:clip;
+  overflow-y:visible;
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+  background:#f8ead3;
+}
+@supports (height:100svh){ .story{ --k:min(calc(min(100vw,480px) / 941), calc(100svh / 1671)); } }
+
+.story .paper{
+  background:
+    radial-gradient(ellipse 75% 50% at 50% 45%, rgba(255,250,238,.92), transparent 72%),
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(240,205,160,.28), transparent 70%),
+    linear-gradient(180deg,#f8ead3 0%,#fbf0df 50%,#f8ead3 100%);
+}
+
+/* Pause story animations until scrolled into view */
+.story:not(.in-view) *,
+.story:not(.in-view) *::before,
+.story:not(.in-view) *::after{
+  animation-play-state:paused!important;
+}
+
+/* Warm ambient glow in story section */
+.story .glow{
+  top:64%;
+  animation:spin 70s linear infinite, fadeIn 1.8s .2s both;
+}
+
+/* ---------- ORNATE GOLDEN TEMPLE ARCH & BORDER FRAME ---------- */
+.arch-svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:4;overflow:visible;
+  filter:drop-shadow(0 calc(2*var(--k)) calc(3*var(--k)) rgba(110,60,8,.2));
+}
+.arch-draw{
+  fill:none;stroke:url(#archGold);stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw 2.3s cubic-bezier(.55,0,.2,1) forwards .2s;
+}
+.arch-draw.inner{
+  stroke-width:2.2;opacity:.88;
+  animation-delay:.4s;
+}
+.arch-draw.outer{
+  stroke-width:3.6;
+}
+.arch-beads{
+  fill:none;stroke:#b7791b;stroke-width:3.2;stroke-linecap:round;
+  stroke-dasharray:1 11.5;
+  opacity:0;animation:fadeIn 1.2s ease forwards 1.1s;
+}
+.arch-crown{
+  transform-origin:470.5px 116px;
+  opacity:0;animation:crestIn 1.2s cubic-bezier(.3,1.5,.5,1) forwards .1s, goldPulse 3.8s ease-in-out infinite 2s;
+}
+.arch-bot-crest{
+  transform-origin:470.5px 1595px;
+  opacity:0;animation:pop 1.1s cubic-bezier(.3,1.6,.5,1) forwards 1.75s, goldPulse 4s ease-in-out infinite 3s;
+}
+.arch-corner-orn{
+  opacity:0;animation:fadeIn .9s ease forwards 1.3s;
+}
+
+/* ---------- STORY TYPOGRAPHY & DIVIDERS ---------- */
+.s-orn-top{
+  position:absolute;left:50%;top:calc(226*var(--k));
+  width:calc(270*var(--k));margin-left:calc(-135*var(--k));z-index:5;
+  transform:scale(0);opacity:0;
+  animation:ornPop 1s cubic-bezier(.28,1.5,.5,1) forwards .45s;
+}
+.s-title-wrap{
+  position:absolute;left:0;right:0;top:calc(284*var(--k));
+  text-align:center;z-index:5;
+}
+.s-title{
+  font-family:'Pinyon Script',cursive;
+  font-weight:400;
+  font-size:calc(162*var(--k));
+  line-height:1.02;
+  color:#5b0810;
+  display:inline-block;
+  position:relative;
+  padding:0 .08em;
+  clip-path:inset(-25% 100% -30% 0);
+  animation:write 1.75s cubic-bezier(.55,.08,.25,1) forwards .65s;
+  filter:drop-shadow(0 calc(2*var(--k)) calc(1*var(--k)) rgba(255,235,195,.6));
+}
+.s-title::after{
+  content:attr(data-text);
+  position:absolute;inset:0;padding:0 .08em;
+  color:var(--gold-hi);pointer-events:none;
+  -webkit-mask-image:linear-gradient(105deg,transparent 42%,#000 50%,transparent 58%);
+  mask-image:linear-gradient(105deg,transparent 42%,#000 50%,transparent 58%);
+  -webkit-mask-size:300% 100%;mask-size:300% 100%;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:120% 0;mask-position:120% 0;
+  mix-blend-mode:screen;
+  animation:shimmer 5.5s ease-in-out infinite 2.6s;
+}
+.s-swash{
+  display:block;
+  width:calc(390*var(--k));height:calc(38*var(--k));
+  margin:calc(-14*var(--k)) auto 0;
+  overflow:visible;
+}
+.s-swash path{
+  fill:none;stroke:#5b0810;stroke-width:3.8;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw 1.15s cubic-bezier(.5,0,.2,1) forwards 1.55s;
+}
+.s-orn-mid{
+  position:absolute;left:50%;top:calc(484*var(--k));
+  width:calc(250*var(--k));margin-left:calc(-125*var(--k));z-index:5;
+  transform:scale(0);opacity:0;
+  animation:ornPop 1s cubic-bezier(.28,1.5,.5,1) forwards 1.75s;
+}
+
+.s-copy{
+  position:absolute;left:calc(70*var(--k));right:calc(70*var(--k));
+  top:calc(558*var(--k));
+  text-align:center;z-index:5;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:calc(43*var(--k));
+  line-height:1.36;
+  letter-spacing:.01em;
+  color:#4f070e;
+}
+.s-copy .s-line{
+  display:block;
+  opacity:0;
+  transform:translateY(calc(24*var(--k)));
+  filter:blur(5px);
+  animation:sLineIn .95s cubic-bezier(.22,.88,.25,1) forwards;
+  animation-delay:calc(1.9s + var(--li) * 180ms);
+}
+@keyframes sLineIn{
+  to{opacity:1;transform:none;filter:none}
+}
+@keyframes ornPop{
+  to{transform:scale(1);opacity:1}
+}
+
+.s-orn-bot{
+  position:absolute;left:50%;top:calc(856*var(--k));
+  width:calc(620*var(--k));margin-left:calc(-310*var(--k));z-index:5;
+  transform:scaleX(0);
+  animation:grow 1.3s cubic-bezier(.65,0,.2,1) forwards 2.75s;
+}
+
+/* ---------- SACRED WEDDING SCENE (FEET + KNOT + BANANA LEAVES + LOTUS) ---------- */
+.s-ground{
+  position:absolute;left:50%;top:calc(1285*var(--k));
+  width:calc(780*var(--k));height:calc(170*var(--k));
+  margin-left:calc(-390*var(--k));z-index:1;
+  background:radial-gradient(ellipse 50% 45% at 50% 50%,rgba(195,125,65,.32) 0%,rgba(215,155,95,.15) 55%,transparent 78%);
+  opacity:0;animation:fadeIn 1.6s ease forwards 2.4s;
+}
+
+/* Couple's Feet & Gathbandhan Knot (PNG) */
+.s-couple{
+  position:absolute;left:50%;top:calc(936*var(--k));
+  width:calc(810*var(--k));margin-left:calc(-405*var(--k));
+  z-index:2;pointer-events:none;
+}
+.s-couple .c-reveal{
+  opacity:0;
+  transform:translateY(calc(34*var(--k))) scale(.95);
+  filter:blur(8px);
+  animation:coupleReveal 1.7s cubic-bezier(.2,.85,.25,1) forwards 2.35s;
+}
+.s-couple .c-sway{
+  transform-origin:50% 15%;
+  animation:coupleBreathe 6s ease-in-out infinite alternate 4.1s;
+}
+/* Warm golden aura pulsing on the sacred Gathbandhan knot */
+.knot-aura{
+  position:absolute;left:49.5%;top:43%;
+  width:calc(180*var(--k));height:calc(180*var(--k));
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,215,115,.48) 0%,rgba(235,150,45,.18) 45%,transparent 72%);
+  mix-blend-mode:screen;pointer-events:none;
+  opacity:0;animation:knotPulse 3.4s ease-in-out infinite 3.6s;
+}
+@keyframes coupleReveal{
+  to{opacity:1;transform:none;filter:none}
+}
+@keyframes coupleBreathe{
+  from{transform:translateY(0) scale(1)}
+  to{transform:translateY(calc(-5*var(--k))) scale(1.012)}
+}
+@keyframes knotPulse{
+  0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(.88)}
+  50%{opacity:.9;transform:translate(-50%,-50%) scale(1.18)}
+}
+
+/* Scattered Rose Petals on Floor around Couple's Feet */
+.s-floor-petal{
+  position:absolute;
+  width:calc(var(--pw,38)*var(--k));
+  z-index:2;pointer-events:none;
+  opacity:0;
+  animation:floorPetalIn 1.1s cubic-bezier(.22,.88,.3,1) forwards var(--pdl,3.1s);
+}
+.s-floor-petal img{
+  transform:rotate(var(--prot,0deg)) scaleX(var(--psx,1));
+  filter:drop-shadow(0 calc(2*var(--k)) calc(2*var(--k)) rgba(120,40,30,.2));
+}
+@keyframes floorPetalIn{
+  from{opacity:0;transform:translateY(calc(-28*var(--k))) rotate(-20deg) scale(.5)}
+  to{opacity:.95;transform:none}
+}
+
+/* Bottom Corner Blooming Pink Lotuses (bridging story -> couple-sec) */
+.s-lotus{
+  bottom:calc(-186*var(--k));
+  width:calc(328*var(--k));
+  z-index:15;pointer-events:none;
+}
+.s-lotus.l{left:calc(-26*var(--k))}
+.s-lotus.r{right:calc(-26*var(--k))}
+.s-lotus.r img{transform:scaleX(-1)}
+.s-lotus .rise{
+  transform-origin:20% 100%;
+  animation:rise 1.75s cubic-bezier(.2,.9,.25,1.15) both 2.85s;
+}
+.s-lotus.r .rise{
+  transform-origin:80% 100%;
+  animation-delay:3s;
+}
+.s-lotus .breathe{
+  transform-origin:20% 100%;
+  animation:breathe 6s ease-in-out infinite alternate 4.6s;
+}
+.s-lotus.r .breathe{
+  transform-origin:80% 100%;
+  animation-duration:6.8s;
+}
+
+/* =====================================================
+   SECTION 3: THE COUPLE (UNDER OUR STORY)
+   ===================================================== */
+.couple-sec{
+  position:relative;
+  z-index:5;
+  width:min(100vw,480px);
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+  height:calc(2220*var(--k));
+  margin:0 auto;
+  overflow:hidden;
+  background:#f8ead3;
+}
+@supports (height:100svh){
+  .couple-sec{
+    --k:min(calc(min(100vw,480px) / 941), calc(100svh / 1671));
+    height:calc(2220*var(--k));
+  }
+}
+.couple-sec .stage{
+  top:0;
+  margin-top:0;
+  width:calc(941*var(--k));
+  height:calc(2220*var(--k));
+}
+
+.couple-sec .paper{
+  background:
+    radial-gradient(ellipse 75% 50% at 50% 50%, rgba(255,250,238,.92), transparent 72%),
+    linear-gradient(180deg,#f8ead3 0%,#fbf0df 50%,#f8ead3 100%);
+}
+
+/* Pause couple-sec animations until scrolled into view */
+.couple-sec:not(.in-view) *,
+.couple-sec:not(.in-view) *::before,
+.couple-sec:not(.in-view) *::after{
+  animation-play-state:paused!important;
+}
+
+.couple-sec .glow{
+  top:50%;
+  animation:spin 75s linear infinite, fadeIn 1.8s .2s both;
+}
+
+/* Subtle Golden Botanical Branch & Sacred Shankha (Conch) PNG Elements */
+.c-gold-branch{
+  position:absolute;z-index:2;pointer-events:none;
+  opacity:0;
+  animation:fadeIn 1.4s ease forwards var(--bdl,1.2s);
+}
+.c-gold-branch .b-sway{
+  transform-origin:50% 95%;
+  animation:branchSway 5.8s ease-in-out infinite alternate var(--bdl,1.2s);
+}
+.c-gold-branch img{
+  opacity:.72;
+  transform:scaleX(var(--bsx,1)) rotate(var(--brot,0deg));
+  filter:drop-shadow(0 calc(2*var(--k)) calc(4*var(--k)) rgba(160,105,20,.15));
+}
+.c-gold-branch.b1{left:calc(44*var(--k));top:calc(535*var(--k));width:calc(154*var(--k));--bsx:-1;--brot:12deg;--bdl:1.15s}
+.c-gold-branch.b2{right:calc(44*var(--k));top:calc(1085*var(--k));width:calc(168*var(--k));--bsx:1;--brot:-10deg;--bdl:1.45s}
+.c-gold-branch.b3{left:calc(44*var(--k));top:calc(1505*var(--k));width:calc(146*var(--k));--bsx:-1;--brot:14deg;--bdl:1.75s}
+.c-gold-branch.b4{right:calc(44*var(--k));top:calc(1545*var(--k));width:calc(146*var(--k));--bsx:1;--brot:-12deg;--bdl:1.95s}
+@keyframes branchSway{
+  from{transform:rotate(-1.8deg) scale(.99)}
+  to{transform:rotate(2deg) scale(1.02)}
+}
+
+.c-shankha-png{
+  position:absolute;
+  right:calc(62*var(--k));
+  top:calc(575*var(--k));
+  width:calc(176*var(--k));
+  z-index:2;pointer-events:none;
+  opacity:0;
+  animation:fadeIn 1.5s ease forwards 1.35s;
+}
+.c-shankha-png .s-float{
+  animation:coupleBreathe 6.2s ease-in-out infinite alternate 2.8s;
+}
+.c-shankha-png img{
+  opacity:.78;
+  filter:drop-shadow(0 calc(3*var(--k)) calc(6*var(--k)) rgba(165,110,20,.18));
+}
+.c-couple-bot-crest{
+  transform-origin:470.5px 2146px;
+  opacity:0;animation:pop 1.1s cubic-bezier(.3,1.6,.5,1) forwards 1.75s, goldPulse 4s ease-in-out infinite 3s;
+}
+
+/* ---------- "THE COUPLE" CALLIGRAPHIC HEADER ---------- */
+.c-title-wrap{
+  position:absolute;left:50%;top:calc(224*var(--k));
+  transform:translateX(-50%);
+  width:calc(680*var(--k));
+  text-align:center;z-index:5;
+}
+.c-sub{
+  display:block;
+  font-family:'Pinyon Script',cursive;
+  font-weight:400;
+  font-size:calc(74*var(--k));
+  line-height:.92;
+  color:#5b0810;
+  clip-path:inset(-20% 100% -20% 0);
+  animation:write 1.3s cubic-bezier(.55,0,.2,1) forwards .55s;
+}
+.c-title{
+  position:relative;display:inline-block;
+  margin-top:calc(-10*var(--k));
+  font-family:'Pinyon Script',cursive;
+  font-weight:400;
+  font-size:calc(142*var(--k));
+  line-height:1;
+  color:#5b0810;
+  text-shadow:0 calc(2*var(--k)) calc(10*var(--k)) rgba(255,244,224,.95);
+  clip-path:inset(-20% 100% -25% 0);
+  animation:write 1.75s cubic-bezier(.55,0,.2,1) forwards .85s;
+}
+.c-title::after{
+  content:attr(data-text);
+  position:absolute;inset:0;
+  color:transparent;
+  background:linear-gradient(108deg,transparent 35%,rgba(255,232,165,.92) 48%,#fff9e6 50%,rgba(255,232,165,.92) 52%,transparent 65%);
+  background-size:240% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  animation:storyShimmer 5.2s ease-in-out infinite 2.8s;
+  pointer-events:none;
+}
+.c-orn-top{
+  position:absolute;left:50%;top:calc(422*var(--k));
+  width:calc(410*var(--k));height:calc(46*var(--k));
+  margin-left:calc(-205*var(--k));z-index:5;
+  transform:scaleX(0);
+  animation:grow 1.2s cubic-bezier(.65,0,.2,1) forwards 1.5s;
+}
+
+/* ---------- CENTERED GROOM & BRIDE CUSPED ARCH PORTRAITS ---------- */
+.c-portrait{
+  position:absolute;left:50%;z-index:3;pointer-events:none;
+}
+.c-portrait.groom{
+  top:calc(510*var(--k));
+  width:calc(396*var(--k));
+  margin-left:calc(-198*var(--k));
+}
+.c-portrait.bride{
+  top:calc(1256*var(--k));
+  width:calc(404*var(--k));
+  margin-left:calc(-202*var(--k));
+}
+.c-portrait .p-reveal{
+  opacity:0;
+  transform:translateY(calc(38*var(--k))) scale(.93);
+  filter:blur(8px);
+  animation:portraitReveal 1.55s cubic-bezier(.2,.88,.25,1) forwards 1.15s;
+}
+.c-portrait.bride .p-reveal{
+  animation-delay:1.85s;
+}
+.c-portrait .p-float{
+  animation:portraitFloat 6.2s ease-in-out infinite alternate 2.8s;
+  filter:drop-shadow(0 calc(10*var(--k)) calc(18*var(--k)) rgba(92,48,10,.18));
+}
+.c-portrait.bride .p-float{
+  animation-duration:6.8s;
+  animation-delay:3.5s;
+}
+@keyframes portraitReveal{
+  to{opacity:1;transform:none;filter:none}
+}
+@keyframes portraitFloat{
+  from{transform:translateY(0) scale(1);filter:drop-shadow(0 calc(10*var(--k)) calc(18*var(--k)) rgba(92,48,10,.18))}
+  to{transform:translateY(calc(-6*var(--k))) scale(1.012);filter:drop-shadow(0 calc(14*var(--k)) calc(24*var(--k)) rgba(185,125,30,.28))}
+}
+
+/* Jasmine Floral Sprig overlapping Groom's bottom-left arch corner */
+.c-jasmine{
+  position:absolute;
+  left:calc(156*var(--k));
+  top:calc(852*var(--k));
+  width:calc(218*var(--k));
+  z-index:4;pointer-events:none;
+}
+.c-jasmine .j-bloom{
+  opacity:0;
+  transform:scale(.68) rotate(-12deg);
+  transform-origin:65% 55%;
+  animation:jasmineIn 1.4s cubic-bezier(.22,1.15,.32,1) forwards 1.65s;
+}
+.c-jasmine .j-sway{
+  transform-origin:65% 55%;
+  animation:jasmineSway 5.4s ease-in-out infinite alternate 3.1s;
+}
+@keyframes jasmineIn{
+  to{opacity:1;transform:none}
+}
+@keyframes jasmineSway{
+  from{transform:rotate(-2.2deg) scale(1)}
+  to{transform:rotate(2.4deg) scale(1.02)}
+}
+
+/* ---------- CENTERED NAME BLOCKS DIRECTLY BELOW EACH PORTRAIT ---------- */
+.c-name-block{
+  position:absolute;left:50%;z-index:6;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+}
+.c-name-block.groom-name{
+  top:calc(1074*var(--k));
+  width:calc(740*var(--k));
+  margin-left:calc(-370*var(--k));
+}
+.c-name-block.bride-name{
+  top:calc(1812*var(--k));
+  width:calc(740*var(--k));
+  margin-left:calc(-370*var(--k));
+}
+.c-name-div{
+  width:calc(270*var(--k));height:calc(38*var(--k));
+  overflow:visible;
+  transform:scaleX(0);
+  animation:grow 1.15s cubic-bezier(.65,0,.2,1) forwards var(--ndl,1.55s);
+}
+.c-person-name{
+  position:relative;display:inline-block;
+  margin:calc(2*var(--k)) 0;
+  font-family:'Pinyon Script',cursive;
+  font-weight:400;
+  font-size:calc(66*var(--k));
+  line-height:1.06;
+  white-space:nowrap;
+  color:#5b0810;
+  text-shadow:0 calc(2*var(--k)) calc(8*var(--k)) rgba(255,244,224,.95);
+  clip-path:inset(-20% 100% -20% 0);
+  animation:write 1.65s cubic-bezier(.55,0,.2,1) forwards var(--wdl,1.65s);
+}
+.c-person-name::after{
+  content:attr(data-text);
+  position:absolute;inset:0;
+  color:transparent;
+  background:linear-gradient(108deg,transparent 35%,rgba(255,232,165,.92) 48%,#fff9e6 50%,rgba(255,232,165,.92) 52%,transparent 65%);
+  background-size:240% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  animation:storyShimmer 5s ease-in-out infinite 3.4s;
+  pointer-events:none;
+}
+
+/* ---------- BOTTOM-LEFT NILAVILAKKU & KALASH + 5 LIVE FLICKERING WICKS ---------- */
+.c-lamp{
+  position:absolute;
+  left:calc(16*var(--k));
+  bottom:calc(42*var(--k));
+  width:calc(336*var(--k));
+  z-index:5;pointer-events:none;
+}
+.c-lamp .l-rise{
+  transform-origin:35% 100%;
+  animation:rise 1.7s cubic-bezier(.2,.9,.25,1.12) both 2.25s;
+}
+.c-lamp-halo{
+  position:absolute;left:31%;top:24%;
+  width:calc(200*var(--k));height:calc(165*var(--k));
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,210,95,.55) 0%,rgba(255,150,35,.22) 48%,transparent 74%);
+  mix-blend-mode:screen;pointer-events:none;
+  animation:haloPulse 2.8s ease-in-out infinite alternate;
+}
+@keyframes haloPulse{
+  from{opacity:.55;transform:translate(-50%,-50%) scale(.9)}
+  to{opacity:1;transform:translate(-50%,-50%) scale(1.14)}
+}
+.c-wick-flame{
+  position:absolute;
+  width:calc(13*var(--k));height:calc(24*var(--k));
+  margin-left:calc(-6.5*var(--k));margin-top:calc(-19*var(--k));
+  border-radius:50% 50% 38% 38% / 65% 65% 35% 35%;
+  background:radial-gradient(ellipse at 50% 72%,#fffef2 0%,#ffe36e 38%,#ff9419 72%,rgba(255,80,0,0) 100%);
+  box-shadow:0 0 calc(10*var(--k)) calc(3*var(--k)) rgba(255,185,55,.72);
+  transform-origin:50% 90%;
+  mix-blend-mode:screen;
+  animation:wickFlicker var(--ft,1.25s) ease-in-out infinite alternate var(--fd,0s);
+}
+.c-wick-flame.w1{left:15.8%;top:24.4%;--ft:1.15s;--fd:.1s}
+.c-wick-flame.w2{left:23.8%;top:25.4%;--ft:1.38s;--fd:.35s}
+.c-wick-flame.w3{left:32.1%;top:24.7%;--ft:1.08s;--fd:.2s}
+.c-wick-flame.w4{left:38.7%;top:25.3%;--ft:1.32s;--fd:.5s}
+.c-wick-flame.w5{left:46.8%;top:23.8%;--ft:1.22s;--fd:.15s}
+@keyframes wickFlicker{
+  0%{transform:scaleX(.88) scaleY(.92) rotate(-4deg);opacity:.86}
+  50%{transform:scaleX(1.08) scaleY(1.14) rotate(3deg);opacity:1}
+  100%{transform:scaleX(.94) scaleY(1.04) rotate(-2deg);opacity:.94}
+}
+
+/* ---------- BOTTOM-RIGHT BLOOMING PINK LOTUS CLUSTER ---------- */
+.c-lotus-r{
+  position:absolute;
+  right:calc(-10*var(--k));
+  bottom:calc(40*var(--k));
+  width:calc(336*var(--k));
+  z-index:5;pointer-events:none;
+}
+.c-lotus-r .rise{
+  transform-origin:80% 100%;
+  animation:rise 1.75s cubic-bezier(.2,.9,.25,1.15) both 2.45s;
+}
+.c-lotus-r .breathe{
+  transform-origin:80% 100%;
+  animation:breathe 6.4s ease-in-out infinite alternate 4.2s;
+}
+
+/* =====================================================
+   SECTION 4: WEDDING DETAILS (UNDER THE COUPLE)
+   ===================================================== */
+.details-sec{
+  position:relative;
+  z-index:4;
+  width:min(100vw,480px);
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+  height:calc(2020*var(--k));
+  margin:-2px auto 0;
+  overflow:hidden;
+  background:#f8ead3;
+}
+@supports (height:100svh){
+  .details-sec{
+    --k:min(calc(min(100vw,480px) / 941), calc(100svh / 1671));
+    height:calc(2020*var(--k));
+  }
+}
+.details-sec .stage{
+  top:0;
+  margin-top:0;
+  width:calc(941*var(--k));
+  height:calc(2020*var(--k));
+}
+.details-sec .paper{
+  background:
+    radial-gradient(ellipse 75% 50% at 50% 50%, rgba(255,250,238,.92), transparent 72%),
+    linear-gradient(180deg,#f8ead3 0%,#fbf0df 50%,#f8ead3 100%);
+}
+
+/* Pause details-sec animations until scrolled into view */
+.details-sec:not(.in-view) *,
+.details-sec:not(.in-view) *::before,
+.details-sec:not(.in-view) *::after{
+  animation-play-state:paused!important;
+}
+
+.details-sec .glow{
+  top:52%;
+  animation:spin 75s linear infinite, fadeIn 1.8s .2s both;
+}
+.d-bot-crest{
+  transform-origin:470.5px 1706px;
+  opacity:0;animation:pop 1.1s cubic-bezier(.3,1.6,.5,1) forwards 1.75s, goldPulse 4s ease-in-out infinite 3s;
+}
+
+/* ---------- TOP ARCH SHOULDER DEVOTIONAL FLOWERS (PNG) ---------- */
+.d-top-flower{
+  position:absolute;
+  top:calc(58*var(--k));
+  width:calc(228*var(--k));
+  z-index:6;pointer-events:none;
+}
+.d-top-flower.l{left:calc(22*var(--k))}
+.d-top-flower.r{right:calc(22*var(--k))}
+.d-top-flower .f-bloom{
+  opacity:0;
+  transform:scale(.72);
+  transform-origin:50% 50%;
+  animation:jasmineIn 1.3s cubic-bezier(.22,1.15,.35,1) forwards .55s;
+}
+.d-top-flower.r .f-bloom{animation-delay:.7s}
+.d-top-flower .f-sway{
+  transform-origin:50% 55%;
+  animation:jasmineSway 5.4s ease-in-out infinite alternate 1.9s;
+}
+.d-top-flower.r .f-sway{animation-delay:2.3s}
+.d-top-flower img{
+  filter:drop-shadow(0 calc(6*var(--k)) calc(12*var(--k)) rgba(90,42,10,.22));
+}
+.d-top-flower.r img{transform:scaleX(-1)}
+
+/* ---------- BACKGROUND PNG ILLUSTRATIONS (TEMPLE, CLOUDS, LEAVES) ---------- */
+.d-temple{
+  position:absolute;
+  right:calc(38*var(--k));
+  top:calc(520*var(--k));
+  width:calc(226*var(--k));
+  z-index:2;pointer-events:none;
+  opacity:0;animation:fadeIn 1.6s ease forwards 1.3s;
+}
+.d-temple .t-float{
+  animation:coupleBreathe 7s ease-in-out infinite alternate 2.8s;
+}
+.d-temple img{
+  opacity:.85;
+  filter:drop-shadow(0 calc(2*var(--k)) calc(5*var(--k)) rgba(160,105,20,.15));
+}
+
+.d-cloud{
+  position:absolute;z-index:2;pointer-events:none;
+  opacity:0;animation:fadeIn 1.6s ease forwards 1.6s;
+}
+.d-cloud .c-drift{
+  animation:cloudDrift 8s ease-in-out infinite alternate;
+}
+.d-cloud img{opacity:.72}
+.d-cloud.cl{left:calc(48*var(--k));top:calc(1150*var(--k));width:calc(175*var(--k))}
+.d-cloud.cr{right:calc(48*var(--k));top:calc(1185*var(--k));width:calc(150*var(--k))}
+.d-cloud.cr img{transform:scaleX(-1)}
+@keyframes cloudDrift{
+  from{transform:translateX(calc(-6*var(--k)))}
+  to{transform:translateX(calc(8*var(--k)))}
+}
+
+/* ---------- "WEDDING DETAILS" HEADER ---------- */
+.d-orn-top{
+  position:absolute;left:50%;top:calc(162*var(--k));
+  width:calc(250*var(--k));height:calc(42*var(--k));
+  margin-left:calc(-125*var(--k));z-index:5;
+  transform:scale(0);opacity:0;
+  animation:ornPop 1s cubic-bezier(.28,1.5,.5,1) forwards .45s;
+}
+.d-title-wrap{
+  position:absolute;left:50%;top:calc(224*var(--k));
+  transform:translateX(-50%);
+  width:calc(720*var(--k));
+  text-align:center;z-index:5;
+}
+.d-title-line{
+  position:relative;display:block;
+  font-family:'Pinyon Script',cursive;
+  font-weight:400;
+  font-size:calc(114*var(--k));
+  line-height:1.14;
+  color:#5b0810;
+  text-shadow:0 calc(2*var(--k)) calc(10*var(--k)) rgba(255,244,224,.95);
+  clip-path:inset(-25% 100% -30% 0);
+  animation:write 1.55s cubic-bezier(.55,0,.2,1) forwards var(--tdl,.6s);
+}
+.d-title-line.t2{
+  margin-top:calc(20*var(--k));
+  padding-right:calc(26*var(--k));
+  --tdl:.95s;
+}
+.d-title-line::after{
+  content:attr(data-text);
+  position:absolute;inset:0;
+  color:transparent;
+  background:linear-gradient(108deg,transparent 35%,rgba(255,232,165,.92) 48%,#fff9e6 50%,rgba(255,232,165,.92) 52%,transparent 65%);
+  background-size:240% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  animation:storyShimmer 5.2s ease-in-out infinite 2.8s;
+  pointer-events:none;
+}
+
+/* ---------- 3 ORNATE GOLDEN CUSPED CARTOUCHE CARDS ---------- */
+.d-card{
+  position:absolute;left:50%;z-index:5;
+  transform:translateX(-50%);
+  text-align:center;
+  opacity:0;
+  animation:cardRise 1.25s cubic-bezier(.2,.88,.25,1) forwards var(--cdl,1.5s);
+}
+@keyframes cardRise{
+  from{opacity:0;transform:translateX(-50%) translateY(calc(32*var(--k))) scale(.94)}
+  to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+}
+.d-card.c-date{
+  top:calc(556*var(--k));
+  width:calc(596*var(--k));
+  height:calc(286*var(--k));
+  --cdl:1.35s;
+}
+.d-card.c-muhurtham{
+  top:calc(888*var(--k));
+  width:calc(548*var(--k));
+  height:calc(250*var(--k));
+  --cdl:1.75s;
+}
+.d-card.c-venue{
+  top:calc(1184*var(--k));
+  width:calc(636*var(--k));
+  height:calc(324*var(--k));
+  --cdl:2.15s;
+}
+.d-card-svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  overflow:visible;pointer-events:none;
+  filter:drop-shadow(0 calc(4*var(--k)) calc(10*var(--k)) rgba(120,68,12,.12));
+}
+.d-card-svg .plaque-fill{
+  fill:rgba(253,244,227,.76);
+  stroke:url(#archGold);
+  stroke-width:3;
+}
+.d-card-svg .plaque-inner{
+  fill:none;
+  stroke:#d9a648;
+  stroke-width:1.2;
+  opacity:.65;
+}
+.d-card-svg .badge-fill{
+  fill:#f6e4c0;
+  stroke:url(#archGold);
+  stroke-width:2.8;
+}
+.d-badge-icon{
+  position:absolute;left:50%;top:calc(23*var(--k));
+  width:calc(44*var(--k));height:calc(44*var(--k));
+  transform:translateX(-50%);
+  z-index:2;
+  animation:iconPulse 3.2s ease-in-out infinite alternate 2.6s;
+}
+@keyframes iconPulse{
+  from{transform:translateX(-50%) scale(.94)}
+  to{transform:translateX(-50%) scale(1.08);filter:drop-shadow(0 0 calc(6*var(--k)) rgba(200,130,30,.45))}
+}
+.d-card-body{
+  position:absolute;left:calc(32*var(--k));right:calc(32*var(--k));
+  top:calc(76*var(--k));
+  bottom:calc(24*var(--k));
+  z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.d-label{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700;
+  font-size:calc(36*var(--k));
+  line-height:1.12;
+  color:#5b0810;
+  letter-spacing:.02em;
+}
+.d-val{
+  margin-top:calc(6*var(--k));
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700;
+  font-style:italic;
+  font-size:calc(44*var(--k));
+  line-height:1.14;
+  color:#5b0810;
+}
+.d-card.c-venue .d-val{
+  font-size:calc(43*var(--k));
+  margin-top:calc(6*var(--k));
+}
+.d-subval{
+  margin-top:calc(6*var(--k));
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:calc(31*var(--k));
+  line-height:1.22;
+  color:#5b0810;
+}
+.d-card.c-muhurtham .d-val{
+  font-size:calc(46*var(--k));
+  margin-top:calc(8*var(--k));
+}
+
+/* ---------- BOTTOM CENTER SACRED ARRANGEMENT ON BANANA LEAF ---------- */
+.d-centerpiece{
+  position:absolute;left:50%;
+  bottom:calc(52*var(--k));
+  width:calc(776*var(--k));
+  margin-left:calc(-388*var(--k));
+  z-index:5;pointer-events:none;
+}
+.d-centerpiece .cp-rise{
+  transform-origin:50% 100%;
+  animation:rise 1.75s cubic-bezier(.2,.9,.25,1.12) both 2.55s;
+}
+.d-lamp-halo{
+  position:absolute;left:48%;top:26%;
+  width:calc(220*var(--k));height:calc(180*var(--k));
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,210,95,.55) 0%,rgba(255,150,35,.22) 48%,transparent 74%);
+  mix-blend-mode:screen;pointer-events:none;
+  animation:haloPulse 2.8s ease-in-out infinite alternate;
+}
+.d-wick-flame{
+  position:absolute;
+  width:calc(14*var(--k));height:calc(26*var(--k));
+  margin-left:calc(-7*var(--k));margin-top:calc(-20*var(--k));
+  border-radius:50% 50% 38% 38% / 65% 65% 35% 35%;
+  background:radial-gradient(ellipse at 50% 72%,#fffef2 0%,#ffe36e 38%,#ff9419 72%,rgba(255,80,0,0) 100%);
+  box-shadow:0 0 calc(10*var(--k)) calc(3*var(--k)) rgba(255,185,55,.72);
+  transform-origin:50% 90%;
+  mix-blend-mode:screen;
+  animation:wickFlicker var(--ft,1.25s) ease-in-out infinite alternate var(--fd,0s);
+}
+.d-wick-flame.w1{left:40.3%;top:28.4%;--ft:1.15s;--fd:.1s}
+.d-wick-flame.w2{left:44.8%;top:28.5%;--ft:1.38s;--fd:.35s}
+.d-wick-flame.w3{left:48.2%;top:28.5%;--ft:1.08s;--fd:.2s}
+.d-wick-flame.w4{left:51.6%;top:28.6%;--ft:1.32s;--fd:.5s}
+.d-wick-flame.w5{left:55.5%;top:28.4%;--ft:1.22s;--fd:.15s}
+
+/* ==================== SECTION 5: MOMENTS ==================== */
+.moments-sec{
+  position:relative;
+  z-index:3;
+  width:min(100vw,480px);
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+  height:calc(1770*var(--k));
+  margin:-2px auto 0;
+  overflow:hidden;
+  background:#f8ead3;
+}
+@supports (height:100svh){
+  .moments-sec{
+    --k:min(calc(min(100vw,480px) / 941), calc(100svh / 1671));
+    height:calc(1770*var(--k));
+  }
+}
+.moments-sec .stage{
+  top:0;
+  margin-top:0;
+  width:calc(941*var(--k));
+  height:calc(1770*var(--k));
+}
+.moments-sec .paper{
+  background:
+    radial-gradient(ellipse 84% 62% at 50% 46%, rgba(255,250,238,.94) 0%, rgba(251,238,215,.82) 56%, rgba(248,234,211,.96) 100%),
+    linear-gradient(180deg, #f8ead3 0%, #f8ead3 12%, #f9ecd6 50%, #f8ead3 88%, #f8ead3 100%);
+}
+.moments-sec .glow{
+  top:50%;
+  animation:spin 75s linear infinite, fadeIn 1.8s .2s both;
+}
+
+/* Pause Moments animations until scrolled into view */
+.moments-sec:not(.in-view) *,
+.moments-sec:not(.in-view) *::before,
+.moments-sec:not(.in-view) *::after{
+  animation-play-state:paused!important;
+}
+
+/* Top Arch Shoulder Devotional Flowers */
+.m-top-flower{
+  position:absolute;
+  top:calc(54*var(--k));
+  width:calc(225*var(--k));
+  z-index:5;
+  pointer-events:none;
+}
+.m-top-flower.l{left:calc(22*var(--k))}
+.m-top-flower.r{right:calc(22*var(--k))}
+.m-top-flower .f-bloom{
+  opacity:0;
+  transform:scale(.72);
+  transform-origin:50% 50%;
+  animation:jasmineIn 1.3s cubic-bezier(.22,1.15,.35,1) forwards .5s;
+}
+.m-top-flower.r .f-bloom{animation-delay:.65s}
+.m-top-flower .f-sway{
+  transform-origin:50% 55%;
+  animation:jasmineSway 5.4s ease-in-out infinite alternate 1.9s;
+}
+.m-top-flower.r .f-sway{animation-delay:2.3s}
+.m-top-flower img{
+  filter:drop-shadow(0 calc(6*var(--k)) calc(12*var(--k)) rgba(90,42,10,.22));
+}
+.m-top-flower.r img{transform:scaleX(-1)}
+
+/* Moments Header ("Moments" + Ornate Swash Divider + Subtitle) */
+.m-title-wrap{
+  position:absolute;left:0;right:0;top:calc(182*var(--k));
+  text-align:center;z-index:9;pointer-events:none;
+}
+.m-title{
+  display:inline-block;margin:0;
+  font-family:'Pinyon Script',cursive;font-weight:400;
+  font-size:calc(136*var(--k));line-height:1.05;
+  color:#5b0810;
+  padding:0 .12em;
+  position:relative;
+  text-shadow:0 calc(2*var(--k)) calc(10*var(--k)) rgba(255,244,224,.95);
+  clip-path:inset(-25% 100% -30% 0);
+  animation:write 1.65s cubic-bezier(.55,0,.2,1) forwards .55s;
+}
+.m-title::after{
+  content:attr(data-text);position:absolute;inset:0;padding:0 .12em;
+  color:transparent;
+  background:linear-gradient(108deg,transparent 35%,rgba(255,232,165,.92) 48%,#fff9e6 50%,rgba(255,232,165,.92) 52%,transparent 65%);
+  background-size:240% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  animation:storyShimmer 5.2s ease-in-out infinite 2.4s;
+  pointer-events:none;
+}
+
+.m-orn-mid{
+  position:absolute;left:50%;top:calc(346*var(--k));
+  width:calc(460*var(--k));height:calc(56*var(--k));
+  margin-left:calc(-230*var(--k));
+  z-index:9;pointer-events:none;
+  transform:scaleX(0);
+  animation:grow 1.25s cubic-bezier(.22,1,.36,1) forwards .95s;
+}
+
+.m-sub{
+  position:absolute;left:calc(110*var(--k));right:calc(110*var(--k));
+  top:calc(406*var(--k));margin:0;
+  text-align:center;z-index:9;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:calc(38*var(--k));
+  line-height:1.26;
+  color:#5b0810;
+  letter-spacing:.01em;
+}
+.m-sub-line{
+  display:block;
+  opacity:0;
+  transform:translateY(calc(22*var(--k)));
+  filter:blur(4px);
+  animation:sLineIn .95s cubic-bezier(.22,.88,.3,1) forwards;
+  animation-delay:calc(1.1s + var(--mli,0) * .16s);
+}
+
+/* 5 Animated Golden Cusped Photo Frames */
+@keyframes photoReveal{
+  0%{opacity:0;transform:translateY(calc(28*var(--k))) scale(.92);filter:blur(4px)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+@keyframes photoFloat{
+  0%{transform:translateY(0) scale(1)}
+  100%{transform:translateY(calc(-5*var(--k))) scale(1.01)}
+}
+
+.m-photo{
+  position:absolute;
+  z-index:8;
+  pointer-events:none;
+  filter:drop-shadow(0 calc(10*var(--k)) calc(20*var(--k)) rgba(82,36,8,.16));
+}
+.m-photo .p-in{
+  transform-origin:50% 50%;
+  animation:photoReveal 1.35s cubic-bezier(.2,.9,.25,1.08) both var(--pdl,1.35s);
+}
+.m-photo .p-float{
+  transform-origin:50% 50%;
+  animation:photoFloat var(--pft,4.8s) ease-in-out infinite alternate var(--pfd,2.7s);
+}
+.m-photo img{
+  width:100%;height:auto;display:block;
+}
+
+/* Row 1: Top Large Cusped Arch Photo */
+.m-photo.p1{
+  top:calc(506*var(--k));
+  left:50%;
+  width:calc(736*var(--k));
+  margin-left:calc(-368*var(--k));
+  --pdl:1.32s;--pft:5.2s;--pfd:2.7s;
+}
+
+/* Row 2: Left & Right Cartouche Photos */
+.m-photo.p2{
+  top:calc(974*var(--k));
+  left:calc(68*var(--k));
+  width:calc(392*var(--k));
+  --pdl:1.58s;--pft:4.7s;--pfd:2.9s;
+}
+.m-photo.p3{
+  top:calc(974*var(--k));
+  right:calc(68*var(--k));
+  width:calc(392*var(--k));
+  --pdl:1.74s;--pft:5.1s;--pfd:3.1s;
+}
+
+/* Row 3: Left & Right Cartouche Photos */
+.m-photo.p4{
+  top:calc(1274*var(--k));
+  left:calc(68*var(--k));
+  width:calc(392*var(--k));
+  --pdl:1.92s;--pft:4.9s;--pfd:3.3s;
+}
+.m-photo.p5{
+  top:calc(1274*var(--k));
+  right:calc(68*var(--k));
+  width:calc(392*var(--k));
+  --pdl:2.08s;--pft:5.3s;--pfd:3.5s;
+}
+
+/* Ornate 4-Petal Golden Lotus-Diamond Grid Emblems between Photo Rows */
+.m-grid-orn{
+  position:absolute;
+  left:50%;
+  width:calc(62*var(--k));
+  height:calc(62*var(--k));
+  margin-left:calc(-31*var(--k));
+  z-index:9;
+  pointer-events:none;
+  transform-origin:50% 50%;
+  transform:scale(0);opacity:0;
+  animation:ornPop 1.1s cubic-bezier(.28,1.5,.5,1) forwards var(--odl,1.8s);
+}
+.m-grid-orn.o1{top:calc(942*var(--k));--odl:1.68s}
+.m-grid-orn.o2{top:calc(1242*var(--k));--odl:2.02s}
+
+/* Bottom-Center 5-Wick Brass Nilavilakku Lamp with Marigold & Jasmine Base */
+.m-lamp{
+  position:absolute;
+  bottom:calc(24*var(--k));
+  left:50%;
+  width:calc(246*var(--k));
+  margin-left:calc(-123*var(--k));
+  z-index:11;
+  pointer-events:none;
+  filter:drop-shadow(0 calc(10*var(--k)) calc(20*var(--k)) rgba(72,28,6,.2));
+}
+.m-lamp .l-rise{
+  position:relative;
+  transform-origin:50% 100%;
+  animation:rise 1.65s cubic-bezier(.2,.9,.25,1.12) both 2.25s;
+}
+.m-lamp-halo{
+  position:absolute;left:50%;top:22%;
+  width:calc(190*var(--k));height:calc(150*var(--k));
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,212,98,.58) 0%,rgba(255,152,35,.22) 48%,transparent 74%);
+  mix-blend-mode:screen;pointer-events:none;
+  animation:haloPulse 2.7s ease-in-out infinite alternate;
+}
+.m-wick-flame{
+  position:absolute;
+  width:calc(13*var(--k));height:calc(24*var(--k));
+  margin-left:calc(-6.5*var(--k));margin-top:calc(-18*var(--k));
+  border-radius:50% 50% 38% 38% / 65% 65% 35% 35%;
+  background:radial-gradient(ellipse at 50% 72%,#fffef2 0%,#ffe36e 38%,#ff9419 72%,rgba(255,80,0,0) 100%);
+  box-shadow:0 0 calc(9*var(--k)) calc(3*var(--k)) rgba(255,185,55,.72);
+  transform-origin:50% 90%;
+  mix-blend-mode:screen;
+  animation:wickFlicker var(--ft,1.25s) ease-in-out infinite alternate var(--fd,0s);
+}
+.m-wick-flame.w1{left:28.5%;top:25.5%;--ft:1.15s;--fd:.1s}
+.m-wick-flame.w2{left:39.2%;top:25.8%;--ft:1.36s;--fd:.35s}
+.m-wick-flame.w3{left:50.0%;top:25.5%;--ft:1.08s;--fd:.2s}
+.m-wick-flame.w4{left:60.8%;top:25.8%;--ft:1.32s;--fd:.5s}
+.m-wick-flame.w5{left:71.5%;top:25.5%;--ft:1.22s;--fd:.15s}
+
+/* Bottom Corner Blooming Pink Lotuses */
+.m-lotus{
+  position:absolute;
+  bottom:calc(12*var(--k));
+  width:calc(292*var(--k));
+  z-index:10;
+  pointer-events:none;
+  filter:drop-shadow(0 calc(8*var(--k)) calc(18*var(--k)) rgba(75,28,12,.16));
+}
+.m-lotus.l{left:calc(6*var(--k))}
+.m-lotus.r{right:calc(6*var(--k))}
+.m-lotus .rise{transform-origin:20% 75%;animation:rise 1.65s cubic-bezier(.2,.9,.25,1.15) both 2.35s}
+.m-lotus.r .rise{transform-origin:80% 75%;animation-delay:2.48s}
+.m-lotus .breathe{transform-origin:20% 75%;animation:breathe 5.6s ease-in-out infinite alternate 4s}
+.m-lotus.r .breathe{transform-origin:80% 75%;animation-duration:6.2s;animation-delay:4.3s}
+.m-lotus.r img{transform:scaleX(-1)}
+
+/* ==================== SECTION 6: THANK YOU ==================== */
+.thankyou-sec{
+  position:relative;
+  z-index:2;
+  width:min(100vw,480px);
+  --k:min(calc(min(100vw,480px) / 941), calc(100vh / 1671));
+  height:calc(1820*var(--k));
+  margin:-2px auto 0;
+  overflow:hidden;
+  background:#f8ead3;
+}
+@supports (height:100svh){
+  .thankyou-sec{
+    --k:min(calc(min(100vw,480px) / 941), calc(100svh / 1671));
+    height:calc(1820*var(--k));
+  }
+}
+.thankyou-sec .stage{
+  top:0;
+  margin-top:0;
+  width:calc(941*var(--k));
+  height:calc(1820*var(--k));
+}
+.thankyou-sec .paper{
+  background:
+    radial-gradient(ellipse 84% 60% at 50% 48%, rgba(255,250,238,.94) 0%, rgba(251,238,215,.82) 56%, rgba(248,234,211,.96) 100%),
+    linear-gradient(180deg, #f8ead3 0%, #f9ecd6 50%, #f8ead3 100%);
+}
+.thankyou-sec .glow{
+  top:48%;
+  animation:spin 75s linear infinite, fadeIn 1.8s .2s both;
+}
+
+/* Pause animations until scrolled into view */
+.thankyou-sec:not(.in-view) *,
+.thankyou-sec:not(.in-view) *::before,
+.thankyou-sec:not(.in-view) *::after{
+  animation-play-state:paused!important;
+}
+
+/* Hanging Garlands with Temple Bells */
+.ty-garland{
+  position:absolute;
+  top:0;
+  width:calc(200*var(--k));
+  z-index:6;
+  pointer-events:none;
+}
+.ty-garland.l{left:calc(12*var(--k))}
+.ty-garland.r{right:calc(12*var(--k))}
+.ty-garland .drop{
+  animation:drop 1.4s cubic-bezier(.34,1.4,.5,1) both .2s;
+}
+.ty-garland.r .drop{animation-delay:.35s}
+.ty-garland .sway{
+  transform-origin:50% 0;
+  animation:sway 4.5s ease-in-out infinite alternate 1.6s;
+}
+.ty-garland.r .sway{
+  transform-origin:50% 0;
+  animation-duration:5.1s;
+  animation-delay:1.9s;
+}
+.ty-garland.r img{transform:scaleX(-1)}
+
+/* Header: "Thank You" */
+.ty-title-wrap{
+  position:absolute;left:0;right:0;top:calc(214*var(--k));
+  text-align:center;z-index:9;pointer-events:none;
+}
+.ty-title{
+  display:inline-block;margin:0;
+  font-family:'Pinyon Script',cursive;font-weight:400;
+  font-size:calc(136*var(--k));line-height:1.05;
+  color:#5b0810;
+  padding:0 .12em;
+  position:relative;
+  text-shadow:0 calc(2*var(--k)) calc(10*var(--k)) rgba(255,244,224,.95);
+  clip-path:inset(-25% 100% -30% 0);
+  animation:write 1.65s cubic-bezier(.55,0,.2,1) forwards .45s;
+}
+.ty-title::after{
+  content:attr(data-text);position:absolute;inset:0;padding:0 .12em;
+  color:transparent;
+  background:linear-gradient(108deg,transparent 35%,rgba(255,232,165,.92) 48%,#fff9e6 50%,rgba(255,232,165,.92) 52%,transparent 65%);
+  background-size:240% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  animation:storyShimmer 5.2s ease-in-out infinite 2.4s;
+  pointer-events:none;
+}
+
+.ty-orn-mid{
+  position:absolute;left:50%;top:calc(376*var(--k));
+  width:calc(460*var(--k));height:calc(54*var(--k));
+  margin-left:calc(-230*var(--k));
+  z-index:9;pointer-events:none;
+  transform:scaleX(0);
+  animation:grow 1.25s cubic-bezier(.22,1,.36,1) forwards .85s;
+}
+
+/* Gratitude text message */
+.ty-msg{
+  position:absolute;left:calc(110*var(--k));right:calc(110*var(--k));
+  top:calc(434*var(--k));margin:0;
+  text-align:center;z-index:9;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:calc(36*var(--k));
+  line-height:1.32;
+  color:#5b0810;
+}
+.ty-msg-line{
+  display:block;
+  opacity:0;
+  transform:translateY(calc(20*var(--k)));
+  filter:blur(4px);
+  animation:sLineIn .95s cubic-bezier(.22,.88,.3,1) forwards;
+  animation-delay:calc(1.05s + var(--tli,0) * .15s);
+}
+
+.ty-orn-div{
+  position:absolute;left:50%;top:calc(584*var(--k));
+  width:calc(380*var(--k));height:calc(44*var(--k));
+  margin-left:calc(-190*var(--k));
+  z-index:9;pointer-events:none;
+  transform:scaleX(0);
+  animation:grow 1.2s cubic-bezier(.22,1,.36,1) forwards 1.45s;
+}
+
+/* Two Family Columns (Groom's Family & Bride's Family) */
+.ty-families-wrap{
+  position:absolute;left:calc(54*var(--k));right:calc(54*var(--k));
+  top:calc(636*var(--k));
+  height:calc(480*var(--k));
+  z-index:9;
+  display:flex;
+  justify-content:space-between;
+}
+.ty-col-divider{
+  position:absolute;left:50%;top:calc(20*var(--k));bottom:calc(20*var(--k));
+  width:2px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,#c88d28 15%,#c88d28 85%,transparent);
+}
+.ty-col-divider::before{
+  content:"";
+  position:absolute;left:50%;top:50%;
+  width:calc(20*var(--k));height:calc(20*var(--k));
+  transform:translate(-50%,-50%) rotate(45deg);
+  background:url(#archGold);
+  background:#c88d28;
+  border:1px solid #fff3c8;
+}
+
+.ty-col{
+  width:calc(396*var(--k));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+/* Crimson Ribbon Header Cartouche */
+.ty-badge{
+  position:relative;
+  width:calc(320*var(--k));
+  height:calc(74*var(--k));
+  display:flex;align-items:center;justify-content:center;
+  transform:scale(0);opacity:0;
+  animation:ornPop 1s cubic-bezier(.28,1.5,.5,1) forwards var(--bdl,1.6s);
+}
+.ty-badge svg{
+  position:absolute;inset:0;width:100%;height:100%;
+}
+.ty-badge-title{
+  position:relative;z-index:2;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700;
+  font-style:italic;
+  font-size:calc(35*var(--k));
+  color:#fff3d4;
+  letter-spacing:.02em;
+  text-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+
+.ty-names{
+  margin-top:calc(26*var(--k));
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700;
+  font-size:calc(35*var(--k));
+  line-height:1.35;
+  color:#5b0810;
+  opacity:0;
+  animation:fadeIn 1s ease forwards 1.85s;
+}
+.ty-names .subname{
+  display:block;
+  margin-top:calc(10*var(--k));
+  font-size:calc(33*var(--k));
+}
+
+/* Quote with flanking Golden Sprigs */
+.ty-quote-wrap{
+  margin-top:calc(34*var(--k));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:calc(10*var(--k));
+  padding:0 calc(12*var(--k));
+  opacity:0;
+  animation:fadeIn 1s ease forwards 2.1s;
+}
+.ty-sprig{
+  width:calc(38*var(--k));
+  flex-shrink:0;
+  pointer-events:none;
+}
+.ty-sprig.r{transform:scaleX(-1)}
+.ty-quote{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-style:italic;
+  font-size:calc(26.5*var(--k));
+  line-height:1.26;
+  color:#5b0810;
+  margin:0;
+}
+
+/* Bottom Location & QR Code Card */
+.ty-card{
+  position:absolute;left:50%;
+  transform:translateX(-50%);
+  top:calc(1148*var(--k));
+  width:calc(820*var(--k));
+  height:calc(270*var(--k));
+  z-index:9;
+  opacity:0;
+  animation:cardRise 1.25s cubic-bezier(.2,.88,.25,1) forwards 2.3s;
+}
+.ty-card-svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;
+  filter:drop-shadow(0 calc(6*var(--k)) calc(16*var(--k)) rgba(120,68,12,.14));
+}
+.ty-card-body{
+  position:absolute;inset:calc(12*var(--k));
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 calc(28*var(--k));
+  z-index:2;
+}
+.ty-card-loc{
+  flex:1.2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 calc(16*var(--k));
+}
+.ty-card-pin{
+  width:calc(42*var(--k));height:calc(42*var(--k));
+  animation:iconPulse 3.2s ease-in-out infinite alternate 2.6s;
+}
+.ty-card-venue{
+  margin-top:calc(8*var(--k));
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700;
+  font-size:calc(36*var(--k));
+  line-height:1.2;
+  color:#5b0810;
+  white-space:nowrap;
+}
+.ty-card-scan{
+  margin-top:calc(10*var(--k));
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:calc(28*var(--k));
+  color:#6e101a;
+  letter-spacing:.02em;
+}
+.ty-card-divider{
+  width:2px;
+  height:calc(190*var(--k));
+  margin:0 calc(10*var(--k));
+  background:linear-gradient(180deg,transparent,#d9a648 15%,#d9a648 85%,transparent);
+}
+.ty-card-qr{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.ty-qr-link{
+  display:block;
+  width:calc(186*var(--k));
+  height:calc(186*var(--k));
+  background:#fff;
+  border-radius:calc(10*var(--k));
+  padding:calc(10*var(--k));
+  box-shadow:0 calc(4*var(--k)) calc(12*var(--k)) rgba(91,8,16,.12);
+  transition:transform .3s ease;
+}
+.ty-qr-link:hover{
+  transform:scale(1.05);
+}
+.ty-qr-link img{
+  width:100%;height:100%;object-fit:contain;
+}
+
+/* Bottom Center Brass Nilavilakku Lamp with Floral Mandala */
+.ty-centerpiece{
+  position:absolute;left:50%;
+  bottom:calc(32*var(--k));
+  width:calc(460*var(--k));
+  margin-left:calc(-230*var(--k));
+  z-index:9;pointer-events:none;
+}
+.ty-centerpiece .cp-rise{
+  position:relative;
+  transform-origin:50% 100%;
+  animation:rise 1.65s cubic-bezier(.2,.9,.25,1.12) both 2.5s;
+}
+.ty-lamp-halo{
+  position:absolute;left:50%;top:32%;
+  width:calc(200*var(--k));height:calc(160*var(--k));
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,212,98,.58) 0%,rgba(255,152,35,.22) 48%,transparent 74%);
+  mix-blend-mode:screen;pointer-events:none;
+  animation:haloPulse 2.7s ease-in-out infinite alternate;
+}
+.ty-wick-flame{
+  position:absolute;
+  width:calc(13*var(--k));height:calc(24*var(--k));
+  margin-left:calc(-6.5*var(--k));margin-top:calc(-18*var(--k));
+  border-radius:50% 50% 38% 38% / 65% 65% 35% 35%;
+  background:radial-gradient(ellipse at 50% 72%,#fffef2 0%,#ffe36e 38%,#ff9419 72%,rgba(255,80,0,0) 100%);
+  box-shadow:0 0 calc(9*var(--k)) calc(3*var(--k)) rgba(255,185,55,.72);
+  transform-origin:50% 90%;
+  mix-blend-mode:screen;
+  animation:wickFlicker var(--ft,1.25s) ease-in-out infinite alternate var(--fd,0s);
+}
+.ty-wick-flame.w1{left:40.5%;top:35.5%;--ft:1.15s;--fd:.1s}
+.ty-wick-flame.w2{left:45.2%;top:35.8%;--ft:1.36s;--fd:.35s}
+.ty-wick-flame.w3{left:50.0%;top:35.4%;--ft:1.08s;--fd:.2s}
+.ty-wick-flame.w4{left:54.8%;top:35.8%;--ft:1.32s;--fd:.5s}
+.ty-wick-flame.w5{left:59.5%;top:35.5%;--ft:1.22s;--fd:.15s}
+
+/* Bottom Corner Blooming Pink Lotuses */
+.ty-lotus{
+  position:absolute;
+  bottom:calc(12*var(--k));
+  width:calc(292*var(--k));
+  z-index:8;
+  pointer-events:none;
+  filter:drop-shadow(0 calc(8*var(--k)) calc(18*var(--k)) rgba(75,28,12,.16));
+}
+.ty-lotus.l{left:calc(6*var(--k))}
+.ty-lotus.r{right:calc(6*var(--k))}
+.ty-lotus .rise{transform-origin:20% 75%;animation:rise 1.65s cubic-bezier(.2,.9,.25,1.15) both 2.45s}
+.ty-lotus.r .rise{transform-origin:80% 75%;animation-delay:2.58s}
+.ty-lotus .breathe{transform-origin:20% 75%;animation:breathe 5.6s ease-in-out infinite alternate 4s}
+.ty-lotus.r .breathe{transform-origin:80% 75%;animation-duration:6.2s;animation-delay:4.3s}
+.ty-lotus.r img{transform:scaleX(-1)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition:none!important;animation-play-state:running!important}
+  .curtain{display:none}
+  .glow{animation:none}
+}
+</style>
+</head>
+<body>
+<section class="hero" id="hero" aria-label="Aswin and Yashaswini wedding invitation">
+  <div class="paper"></div>
+  <div class="glow"></div>
+
+  <!-- top garlands -->
+  <div class="abs par g3" data-bell><div class="drop"><div class="sway"><img src="assets/garland.webp" alt=""></div></div></div>
+  <div class="abs par g1" data-bell><div class="drop"><div class="sway"><img src="assets/garland.webp" alt=""></div></div></div>
+  <div class="abs par g2" data-bell><div class="drop"><div class="sway"><img src="assets/garland.webp" alt=""></div></div></div>
+  <div class="abs par corner" data-bell><div class="drop"><div class="sway"><img src="assets/corner.webp" alt=""></div></div></div>
+
+  <!-- content -->
+  <div class="stage">
+    <div class="abs par crest"><img src="assets/orn-crest.webp" alt=""></div>
+    <div class="c sree"><span class="script">Sree Kuladevatha Prasanna</span></div>
+    <div class="abs div1"><div class="grow"><img src="assets/orn-divider.webp" alt=""></div></div>
+
+    <div class="abs par photo"><div class="reveal"><div class="kb"><img src="assets/couple.webp" alt="Aswin and Yashaswini"></div></div></div>
+
+    <div class="abs div0"><div class="grow"><img src="assets/orn-divider.webp" alt=""></div></div>
+    <div class="c wedof"><span class="script">The Wedding Of</span></div>
+
+    <h1 class="name n1" data-text="ASWIN" data-split>ASWIN</h1>
+    <div class="c amp-row" aria-hidden="true">
+      <svg class="scroll l" viewBox="0 0 275 64"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#d9a441" stop-opacity=".2"/><stop offset=".5" stop-color="#c8902e"/><stop offset="1" stop-color="#b47b20"/></linearGradient></defs>
+        <path pathLength="1" d="M272 40 C250 40 236 48 222 46 C206 44 204 30 214 28 C224 26 228 38 218 42 C196 50 160 22 120 20 C80 18 48 30 26 38 C10 44 4 30 14 24 C24 18 32 30 24 36"/>
+        <circle cx="236" cy="44" r="2.6"/><circle cx="246" cy="42" r="2"/></svg>
+      <svg class="scroll r" viewBox="0 0 275 64"><path pathLength="1" d="M272 40 C250 40 236 48 222 46 C206 44 204 30 214 28 C224 26 228 38 218 42 C196 50 160 22 120 20 C80 18 48 30 26 38 C10 44 4 30 14 24 C24 18 32 30 24 36"/>
+        <circle cx="236" cy="44" r="2.6"/><circle cx="246" cy="42" r="2"/></svg>
+      <span class="amp">&amp;</span>
+    </div>
+    <h1 class="name n2" data-text="YASHASWINI" data-split>YASHASWINI</h1>
+
+    <div class="abs flour"><div class="grow"><img src="assets/orn-flourish.webp" alt=""></div></div>
+    <div class="c date">06 DECEMBER 2026</div>
+    <div class="abs div2"><div class="grow"><img src="assets/orn-divider.webp" alt=""></div></div>
+  </div>
+
+  <!-- bottom decor (bridges seamlessly across hero-to-story transition) -->
+  <div class="abs par lotus l"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+  <div class="abs par lotus r"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+  <div class="abs border"></div>
+  <div class="abs crest-b"><img src="assets/orn-crest.webp" alt=""></div>
+
+  <div class="fx" id="fx"></div>
+
+  <button class="scroll-cue" type="button" aria-label="Scroll to Our Story" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">
+    <span>OUR STORY</span>
+    <svg viewBox="0 0 34 18"><path d="M3 3 L17 15 L31 3"/></svg>
+  </button>
+
+  <div class="curtain" aria-hidden="true">
+    <div class="door l"></div><div class="door r"></div>
+    <div class="seal"><img src="assets/orn-crest.webp" alt=""></div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 2: OUR STORY ==================== -->
+<section class="story" id="story" aria-label="Our Story">
+  <div class="paper"></div>
+  <div class="glow"></div>
+
+  <!-- Center 941 x 1671 Design Artboard -->
+  <div class="stage">
+    <!-- Ornate Golden Scalloped Temple Arch & Beaded Frame -->
+    <svg class="arch-svg" viewBox="0 0 941 1671" aria-hidden="true">
+      <defs>
+        <linearGradient id="archGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e8b85c"/>
+          <stop offset="35%" stop-color="#c88d28"/>
+          <stop offset="70%" stop-color="#a66c16"/>
+          <stop offset="100%" stop-color="#d9a13c"/>
+        </linearGradient>
+        <!-- Reusable 4-petal diamond filigree motif for dividers -->
+        <g id="filigreeMotif">
+          <path d="M0 -28 C6 -16 10 -8 0 0 C-10 -8 -6 -16 0 -28 Z
+                   M0 28 C6 16 10 8 0 0 C-10 8 -6 16 0 28 Z
+                   M-28 0 C-16 -6 -8 -10 0 0 C-8 10 -16 6 -28 0 Z
+                   M28 0 C16 -6 8 -10 0 0 C8 10 16 6 28 0 Z" fill="url(#archGold)" stroke="#9a6110" stroke-width="1.2"/>
+          <path d="M-9 -9 C-18 -20 -34 -18 -38 -6 C-41 2 -32 8 -26 2
+                   M9 -9 C18 -20 34 -18 38 -6 C41 2 32 8 26 2
+                   M-9 9 C-18 20 -34 18 -38 6 C-41 -2 -32 -8 -26 -2
+                   M9 9 C18 20 34 18 38 6 C41 -2 32 -8 26 -2" fill="none" stroke="url(#archGold)" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="3.5" fill="#fff1c2" stroke="#9a6110" stroke-width="1"/>
+          <circle cx="-46" cy="0" r="2.8" fill="#c88d28"/>
+          <circle cx="46" cy="0" r="2.8" fill="#c88d28"/>
+        </g>
+      </defs>
+
+      <!-- Top Lotus Palmette Finial Crown -->
+      <g class="arch-crown">
+        <path d="M470.5 74 C478 92 484 108 470.5 126 C457 108 463 92 470.5 74 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+        <path d="M470.5 126 C482 104 498 96 506 106 C512 114 496 128 470.5 132 Z
+                 M470.5 126 C459 104 443 96 435 106 C429 114 445 128 470.5 132 Z
+                 M470.5 132 C490 120 514 122 518 134 C520 142 496 146 470.5 142 Z
+                 M470.5 132 C451 120 427 122 423 134 C421 142 445 146 470.5 142 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.4"/>
+        <path d="M470.5 136 L496 162 L470.5 188 L445 162 Z" fill="none" stroke="url(#archGold)" stroke-width="3"/>
+        <path d="M470.5 145 L487 162 L470.5 179 L454 162 Z" fill="url(#archGold)" opacity=".75"/>
+      </g>
+
+      <!-- Outer Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw outer" pathLength="1"
+        d="M445 162
+           C408 140 356 154 334 196
+           C288 188 232 216 216 266
+           C164 264 114 288 96 322
+           C64 316 38 338 38 372
+           L38 1564
+           C38 1592 58 1610 88 1610
+           L422 1610"/>
+      <path class="arch-draw outer" pathLength="1"
+        d="M496 162
+           C533 140 585 154 607 196
+           C653 188 709 216 725 266
+           C777 264 827 288 845 322
+           C877 316 903 338 903 372
+           L903 1564
+           C903 1592 883 1610 853 1610
+           L519 1610"/>
+
+      <!-- Inner Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw inner" pathLength="1"
+        d="M452 172
+           C414 154 366 166 344 208
+           C298 200 244 226 228 278
+           C176 276 126 298 108 334
+           C76 330 52 348 52 380
+           L52 1554
+           C52 1580 68 1594 94 1594
+           L426 1594"/>
+      <path class="arch-draw inner" pathLength="1"
+        d="M489 172
+           C527 154 575 166 597 208
+           C643 200 697 226 713 278
+           C765 276 815 298 833 334
+           C865 330 889 348 889 380
+           L889 1554
+           C889 1580 873 1594 847 1594
+           L515 1594"/>
+
+      <!-- Beaded Gold Pearl Channel inside the Arch & Bottom Border -->
+      <path class="arch-beads"
+        d="M448 167
+           C411 147 361 160 339 202
+           C293 194 238 221 222 272
+           C170 270 120 293 102 328
+           M493 167
+           C530 147 580 160 602 202
+           C648 194 703 221 719 272
+           C771 270 821 293 839 328
+           M88 1602 L422 1602
+           M519 1602 L853 1602"/>
+
+      <!-- Ornate Corner Scroll Brackets (Top Shoulder & Bottom Corners) -->
+      <g class="arch-corner-orn" fill="none" stroke="url(#archGold)" stroke-width="2.4" stroke-linecap="round">
+        <path d="M52 396 C72 390 86 368 80 350 C75 336 58 342 62 356 C65 366 76 364 78 356"/>
+        <path d="M889 396 C869 390 855 368 861 350 C866 336 883 342 879 356 C876 366 865 364 863 356"/>
+        <path d="M52 1536 C74 1542 88 1562 84 1580 C80 1592 64 1588 68 1574"/>
+        <path d="M889 1536 C867 1542 853 1562 857 1580 C861 1592 877 1588 873 1574"/>
+      </g>
+
+      <!-- Bottom Center Lotus & Diamond Finial Crest -->
+      <g class="arch-bot-crest">
+        <path d="M470.5 1542 C479 1562 485 1578 470.5 1596 C456 1578 462 1562 470.5 1542 Z
+                 M470.5 1644 C479 1626 485 1612 470.5 1596 C456 1612 462 1626 470.5 1644 Z
+                 M418 1596 C438 1587 454 1583 470.5 1596 C454 1609 438 1605 418 1596 Z
+                 M523 1596 C503 1587 487 1583 470.5 1596 C487 1609 503 1605 523 1596 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+        <path d="M470.5 1596 C486 1572 506 1566 512 1576 C516 1584 498 1594 470.5 1596 Z
+                 M470.5 1596 C455 1572 435 1566 429 1576 C425 1584 443 1594 470.5 1596 Z
+                 M470.5 1596 C486 1620 506 1626 512 1616 C516 1608 498 1598 470.5 1596 Z
+                 M470.5 1596 C455 1620 435 1626 429 1616 C425 1608 443 1598 470.5 1596 Z" fill="url(#archGold)" opacity=".88" stroke="#965d0e" stroke-width="1.2"/>
+        <circle cx="470.5" cy="1596" r="5" fill="#fff3c8" stroke="#965d0e" stroke-width="1.4"/>
+      </g>
+    </svg>
+
+    <!-- Top Filigree Ornament above "Our Story" -->
+    <svg class="s-orn-top" viewBox="-140 -34 280 68" aria-hidden="true">
+      <path d="M-132 0 L-54 0 M54 0 L132 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Title: "Our Story" + Calligraphic Swash Underline -->
+    <div class="s-title-wrap">
+      <h2 class="s-title" data-text="Our Story">Our Story</h2>
+      <svg class="s-swash" viewBox="0 0 390 38" aria-hidden="true">
+        <path pathLength="1" d="M22 26 C95 6 245 8 332 22 C356 26 364 14 348 10 C334 7 326 18 338 24"/>
+      </svg>
+    </div>
+
+    <!-- Middle Filigree Ornament below "Our Story" -->
+    <svg class="s-orn-mid" viewBox="-130 -34 260 68" aria-hidden="true">
+      <path d="M-120 0 L-54 0 M54 0 L120 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Story Poem / Message -->
+    <p class="s-copy">
+      <span class="s-line" style="--li:0">A journey of friendship,</span>
+      <span class="s-line" style="--li:1">trust and shared dreams,</span>
+      <span class="s-line" style="--li:2">that has brought us to this</span>
+      <span class="s-line" style="--li:3">beautiful new beginning &mdash;</span>
+      <span class="s-line" style="--li:4">our wedding.</span>
+    </p>
+
+    <!-- Wide Filigree Divider below Story Text -->
+    <svg class="s-orn-bot" viewBox="-320 -34 640 68" aria-hidden="true">
+      <path d="M-310 0 L-54 0 M54 0 L310 0" stroke="url(#archGold)" stroke-width="2.2" stroke-linecap="round"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Warm Ground Wash under Couple's Feet -->
+    <div class="s-ground"></div>
+
+    <!-- Couple's Feet & Sacred Tied Gathbandhan Knot (Isolated Transparent PNG) -->
+    <div class="s-couple">
+      <div class="c-reveal">
+        <div class="c-sway">
+          <div class="knot-aura"></div>
+          <img src="assets/story-couple.png" alt="Bride and groom stepping forward united by the sacred wedding knot">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scattered Watercolor Rose Petals on the Ground -->
+    <div class="s-floor-petal" style="left:calc(104*var(--k));top:calc(1348*var(--k));--pw:36;--prot:-14deg;--pdl:3.05s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(154*var(--k));top:calc(1386*var(--k));--pw:42;--prot:18deg;--psx:-1;--pdl:3.18s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(218*var(--k));top:calc(1412*var(--k));--pw:46;--prot:-6deg;--pdl:3.3s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(295*var(--k));top:calc(1426*var(--k));--pw:42;--prot:12deg;--pdl:3.42s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(385*var(--k));top:calc(1408*var(--k));--pw:38;--prot:-22deg;--psx:-1;--pdl:3.5s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(468*var(--k));top:calc(1432*var(--k));--pw:40;--prot:10deg;--pdl:3.55s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(548*var(--k));top:calc(1412*var(--k));--pw:38;--prot:15deg;--pdl:3.25s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(624*var(--k));top:calc(1428*var(--k));--pw:44;--prot:-12deg;--psx:-1;--pdl:3.38s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(704*var(--k));top:calc(1406*var(--k));--pw:40;--prot:20deg;--pdl:3.48s"><img src="assets/story-petal.png" alt=""></div>
+    <div class="s-floor-petal" style="left:calc(768*var(--k));top:calc(1366*var(--k));--pw:42;--prot:-10deg;--psx:-1;--pdl:3.6s"><img src="assets/story-petal.png" alt=""></div>
+  </div>
+
+  <!-- Bottom-left & Bottom-right Blooming Pink Lotuses (bridges story -> couple-sec) -->
+  <div class="abs s-lotus l"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+  <div class="abs s-lotus r"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+
+  <div class="fx" id="story-fx"></div>
+</section>
+
+<!-- ==================== SECTION 3: THE COUPLE ==================== -->
+<section class="couple-sec" id="couple-sec" aria-label="The Couple">
+  <div class="paper"></div>
+  <div class="glow"></div>
+
+  <!-- Center 941 x 2140 Design Artboard -->
+  <div class="stage">
+    <!-- Golden Botanical Leaf Branches & Sacred Shankha (Conch) PNG Elements -->
+    <div class="c-gold-branch b1"><div class="b-sway"><img src="assets/couple-branch.webp" alt=""></div></div>
+    <div class="c-shankha-png"><div class="s-float"><img src="assets/couple-shankha.webp" alt=""></div></div>
+    <div class="c-gold-branch b2"><div class="b-sway"><img src="assets/couple-branch.webp" alt=""></div></div>
+    <div class="c-gold-branch b3"><div class="b-sway"><img src="assets/couple-branch.webp" alt=""></div></div>
+    <div class="c-gold-branch b4"><div class="b-sway"><img src="assets/couple-branch.webp" alt=""></div></div>
+
+    <!-- Ornate Golden Scalloped Temple Arch & Beaded Frame -->
+    <svg class="arch-svg" viewBox="0 0 941 2220" aria-hidden="true">
+      <!-- Top Lotus Palmette Finial Crown -->
+      <g class="arch-crown">
+        <path d="M470.5 64 C478 82 484 98 470.5 116 C457 98 463 82 470.5 64 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+        <path d="M470.5 116 C482 94 498 86 506 96 C512 104 496 118 470.5 122 Z
+                 M470.5 116 C459 94 443 86 435 96 C429 104 445 118 470.5 122 Z
+                 M470.5 122 C490 110 514 112 518 124 C520 132 496 136 470.5 132 Z
+                 M470.5 122 C451 110 427 112 423 124 C421 132 445 136 470.5 132 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.4"/>
+        <path d="M470.5 126 L496 152 L470.5 178 L445 152 Z" fill="none" stroke="url(#archGold)" stroke-width="3"/>
+        <path d="M470.5 135 L487 152 L470.5 169 L454 152 Z" fill="url(#archGold)" opacity=".75"/>
+      </g>
+
+      <!-- Outer Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw outer" pathLength="1"
+        d="M445 152
+           C408 130 356 144 334 186
+           C288 178 232 206 216 256
+           C164 254 114 278 96 312
+           C64 306 38 328 38 362
+           L38 2114
+           C38 2142 58 2160 88 2160
+           L422 2160"/>
+      <path class="arch-draw outer" pathLength="1"
+        d="M496 152
+           C533 130 585 144 607 186
+           C653 178 709 206 725 256
+           C777 254 827 278 845 312
+           C877 306 903 328 903 362
+           L903 2114
+           C903 2142 883 2160 853 2160
+           L519 2160"/>
+
+      <!-- Inner Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw inner" pathLength="1"
+        d="M452 162
+           C414 144 366 156 344 198
+           C298 190 244 216 228 268
+           C176 266 126 288 108 324
+           C76 320 52 338 52 370
+           L52 2104
+           C52 2130 68 2144 94 2144
+           L426 2144"/>
+      <path class="arch-draw inner" pathLength="1"
+        d="M489 162
+           C527 144 575 156 597 198
+           C643 190 697 216 713 268
+           C765 266 815 288 833 324
+           C865 320 889 338 889 370
+           L889 2104
+           C889 2130 873 2144 847 2144
+           L515 2144"/>
+
+      <!-- Beaded Gold Pearl Channel inside the Arch & Bottom Border -->
+      <path class="arch-beads"
+        d="M448 157
+           C411 137 361 150 339 192
+           C293 184 238 211 222 262
+           C170 260 120 283 102 318
+           M493 157
+           C530 137 580 150 602 192
+           C648 184 703 211 719 262
+           C771 260 821 283 839 318
+           M88 2152 L422 2152
+           M519 2152 L853 2152"/>
+
+      <!-- Bottom Center Lotus & Diamond Finial Crest -->
+      <g class="c-couple-bot-crest">
+        <path d="M470.5 2092 C479 2112 485 2128 470.5 2146 C456 2128 462 2112 470.5 2092 Z
+                 M470.5 2194 C479 2176 485 2162 470.5 2146 C456 2162 462 2176 470.5 2194 Z
+                 M418 2146 C438 2137 454 2133 470.5 2146 C454 2159 438 2155 418 2146 Z
+                 M523 2146 C503 2137 487 2133 470.5 2146 C487 2159 503 2155 523 2146 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+        <path d="M470.5 2146 C486 2122 506 2116 512 2126 C516 2134 498 2144 470.5 2146 Z
+                 M470.5 2146 C455 2122 435 2116 429 2126 C425 2134 443 2144 470.5 2146 Z
+                 M470.5 2146 C486 2170 506 2176 512 2166 C516 2158 498 2148 470.5 2146 Z
+                 M470.5 2146 C455 2170 435 2176 429 2166 C425 2158 443 2148 470.5 2146 Z" fill="url(#archGold)" opacity=".88" stroke="#965d0e" stroke-width="1.2"/>
+        <circle cx="470.5" cy="2146" r="5" fill="#fff3c8" stroke="#965d0e" stroke-width="1.4"/>
+      </g>
+    </svg>
+
+    <!-- Title: "The Couple" -->
+    <div class="c-title-wrap">
+      <span class="c-sub">The</span>
+      <h2 class="c-title" data-text="Couple">Couple</h2>
+    </div>
+
+    <!-- Filigree Divider below "The Couple" -->
+    <svg class="c-orn-top" viewBox="-220 -34 440 68" aria-hidden="true">
+      <path d="M-205 0 L-54 0 M54 0 L205 0" stroke="url(#archGold)" stroke-width="2.1" stroke-linecap="round"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- GROOM BLOCK: Centered Arch Portrait + Jasmine Corner Sprig + "Aswin" Below -->
+    <div class="c-portrait groom">
+      <div class="p-reveal">
+        <div class="p-float">
+          <img src="assets/groom-portrait.webp?v=2" alt="Aswin">
+        </div>
+      </div>
+    </div>
+
+    <div class="c-jasmine">
+      <div class="j-bloom">
+        <div class="j-sway">
+          <img src="assets/couple-jasmine.webp" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="c-name-block groom-name">
+      <svg class="c-name-div" style="--ndl:1.5s" viewBox="-160 -34 320 68" aria-hidden="true">
+        <path d="M-148 0 L-54 0 M54 0 L148 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+        <use href="#filigreeMotif"/>
+      </svg>
+      <h3 class="c-person-name" style="--wdl:1.65s" data-text="Aswin A Pai">Aswin A Pai</h3>
+      <svg class="c-name-div" style="--ndl:1.8s" viewBox="-160 -34 320 68" aria-hidden="true">
+        <path d="M-148 0 L-54 0 M54 0 L148 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+        <use href="#filigreeMotif"/>
+      </svg>
+    </div>
+
+    <!-- BRIDE BLOCK: Centered Arch Portrait + "Dr. Yashaswini V Bhatt (PT)" Below -->
+    <div class="c-portrait bride">
+      <div class="p-reveal">
+        <div class="p-float">
+          <img src="assets/bride-portrait.webp?v=2" alt="Dr. Yashaswini V Bhatt (PT)">
+        </div>
+      </div>
+    </div>
+
+    <div class="c-name-block bride-name">
+      <svg class="c-name-div" style="--ndl:2.1s" viewBox="-160 -34 320 68" aria-hidden="true">
+        <path d="M-148 0 L-54 0 M54 0 L148 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+        <use href="#filigreeMotif"/>
+      </svg>
+      <h3 class="c-person-name" style="--wdl:2.2s" data-text="Dr. Yashaswini V Bhatt (PT)">Dr. Yashaswini V Bhatt (PT)</h3>
+      <svg class="c-name-div" style="--ndl:2.35s" viewBox="-160 -34 320 68" aria-hidden="true">
+        <path d="M-148 0 L-54 0 M54 0 L148 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+        <use href="#filigreeMotif"/>
+      </svg>
+    </div>
+
+    <!-- BOTTOM-LEFT: Brass Nilavilakku Lamp & Purna Kalash with 5 Live Flickering Wicks -->
+    <div class="c-lamp">
+      <div class="l-rise">
+        <div class="c-lamp-halo"></div>
+        <span class="c-wick-flame w1"></span>
+        <span class="c-wick-flame w2"></span>
+        <span class="c-wick-flame w3"></span>
+        <span class="c-wick-flame w4"></span>
+        <span class="c-wick-flame w5"></span>
+        <img src="assets/couple-lamp.webp" alt="Sacred brass Nilavilakku lamp and auspicious Purna Kalash">
+      </div>
+    </div>
+
+    <!-- BOTTOM-RIGHT: Blooming Pink Lotuses overlapping Bride's frame -->
+    <div class="c-lotus-r">
+      <div class="rise">
+        <div class="breathe">
+          <img src="assets/couple-lotus.webp" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fx" id="couple-fx"></div>
+</section>
+
+<!-- ==================== SECTION 4: WEDDING DETAILS ==================== -->
+<section class="details-sec" id="details-sec" aria-label="Wedding Details">
+  <div class="paper"></div>
+  <div class="glow"></div>
+
+  <!-- Center 941 x 2020 Design Artboard -->
+  <div class="stage">
+    <!-- Top Arch Shoulder Devotional Flowers (Sacred Lotus & Temple Jasmine PNG) -->
+    <div class="d-top-flower l"><div class="f-bloom"><div class="f-sway"><img src="assets/details-flower.webp" alt=""></div></div></div>
+    <div class="d-top-flower r"><div class="f-bloom"><div class="f-sway"><img src="assets/details-flower.webp" alt=""></div></div></div>
+
+    <!-- Background PNG Illustrations: Kerala Temple & Clouds -->
+    <div class="d-temple"><div class="t-float"><img src="assets/details-temple.webp" alt=""></div></div>
+    <div class="d-cloud cl"><div class="c-drift"><img src="assets/details-cloud.webp" alt=""></div></div>
+    <div class="d-cloud cr"><div class="c-drift"><img src="assets/details-cloud.webp" alt=""></div></div>
+
+    <!-- Ornate Golden Scalloped Temple Arch & Beaded Border -->
+    <svg class="arch-svg" viewBox="0 0 941 2020" aria-hidden="true">
+      <!-- Top Lotus Palmette Finial Crown (raised for generous header breathing room) -->
+      <g transform="translate(0, -42)">
+        <g class="arch-crown">
+          <path d="M470.5 64 C478 82 484 98 470.5 116 C457 98 463 82 470.5 64 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+          <path d="M470.5 116 C482 94 498 86 506 96 C512 104 496 118 470.5 122 Z
+                   M470.5 116 C459 94 443 86 435 96 C429 104 445 118 470.5 122 Z
+                   M470.5 122 C490 110 514 112 518 124 C520 132 496 136 470.5 132 Z
+                   M470.5 122 C451 110 427 112 423 124 C421 132 445 136 470.5 132 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.4"/>
+          <path d="M470.5 126 L496 152 L470.5 178 L445 152 Z" fill="none" stroke="url(#archGold)" stroke-width="3"/>
+          <path d="M470.5 135 L487 152 L470.5 169 L454 152 Z" fill="url(#archGold)" opacity=".75"/>
+        </g>
+      </g>
+
+      <!-- Outer Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw outer" pathLength="1"
+        d="M445 110
+           C408 88 356 102 334 144
+           C288 136 232 164 216 214
+           C164 212 114 236 96 270
+           C64 264 38 286 38 320
+           L38 1914
+           C38 1942 58 1960 88 1960
+           L422 1960"/>
+      <path class="arch-draw outer" pathLength="1"
+        d="M496 110
+           C533 88 585 102 607 144
+           C653 136 709 164 725 214
+           C777 212 827 236 845 270
+           C877 264 903 286 903 320
+           L903 1914
+           C903 1942 883 1960 853 1960
+           L519 1960"/>
+
+      <!-- Inner Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw inner" pathLength="1"
+        d="M452 120
+           C414 102 366 114 344 156
+           C298 148 244 174 228 226
+           C176 224 126 246 108 282
+           C76 278 52 296 52 328
+           L52 1904
+           C52 1930 68 1944 94 1944
+           L426 1944"/>
+      <path class="arch-draw inner" pathLength="1"
+        d="M489 120
+           C527 102 575 114 597 156
+           C643 148 697 174 713 226
+           C765 224 815 246 833 282
+           C865 278 889 296 889 328
+           L889 1904
+           C889 1930 873 1944 847 1944
+           L515 1944"/>
+
+      <!-- Beaded Gold Pearl Channel inside the Arch & Bottom Border -->
+      <path class="arch-beads"
+        d="M448 115
+           C411 95 361 108 339 150
+           C293 142 238 169 222 220
+           C170 218 120 241 102 276
+           M493 115
+           C530 95 580 108 602 150
+           C648 142 703 169 719 220
+           C771 218 821 241 839 276
+           M88 1952 L422 1952
+           M519 1952 L853 1952"/>
+
+      <!-- Bottom Center Lotus & Diamond Finial Crest -->
+      <g transform="translate(0, 240)">
+        <g class="d-bot-crest">
+          <path d="M470.5 1652 C479 1672 485 1688 470.5 1706 C456 1688 462 1672 470.5 1652 Z
+                   M470.5 1754 C479 1736 485 1722 470.5 1706 C456 1722 462 1736 470.5 1754 Z
+                   M418 1706 C438 1697 454 1693 470.5 1706 C454 1719 438 1715 418 1706 Z
+                   M523 1706 C503 1697 487 1693 470.5 1706 C487 1719 503 1715 523 1706 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+          <path d="M470.5 1706 C486 1682 506 1676 512 1686 C516 1694 498 1704 470.5 1706 Z
+                   M470.5 1706 C455 1682 435 1676 429 1686 C425 1694 443 1704 470.5 1706 Z
+                   M470.5 1706 C486 1730 506 1736 512 1726 C516 1718 498 1708 470.5 1706 Z
+                   M470.5 1706 C455 1730 435 1736 429 1726 C425 1718 443 1708 470.5 1706 Z" fill="url(#archGold)" opacity=".88" stroke="#965d0e" stroke-width="1.2"/>
+          <circle cx="470.5" cy="1706" r="5" fill="#fff3c8" stroke="#965d0e" stroke-width="1.4"/>
+        </g>
+      </g>
+    </svg>
+
+    <!-- Top Filigree Ornament above "Wedding Details" -->
+    <svg class="d-orn-top" viewBox="-140 -34 280 68" aria-hidden="true">
+      <path d="M-130 0 L-54 0 M54 0 L130 0" stroke="url(#archGold)" stroke-width="2" stroke-linecap="round"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Title: "Wedding Details" -->
+    <div class="d-title-wrap">
+      <h2 class="d-title-line t1" data-text="Wedding">Wedding</h2>
+      <span class="d-title-line t2" data-text="Details">Details</span>
+    </div>
+
+    <!-- CARD 1: WEDDING DATE -->
+    <div class="d-card c-date">
+      <svg class="d-card-svg" viewBox="0 0 596 286" aria-hidden="true">
+        <!-- Main Ornate Cusped Cartouche Plaque -->
+        <path class="plaque-fill"
+          d="M242 58 L116 58 C90 58 76 76 68 96 C38 102 16 128 16 162 C16 196 38 222 68 228 C76 248 90 266 116 266 L266 266 L298 278 L330 266 L480 266 C506 266 520 248 528 228 C558 222 580 196 580 162 C580 128 558 102 528 96 C520 76 506 58 480 58 L354 58 Z"/>
+        <path class="plaque-inner"
+          d="M120 66 L476 66 C500 66 512 82 520 102 C548 108 570 130 570 162 C570 194 548 216 520 222 C512 242 500 258 476 258 L120 258 C96 258 84 242 76 222 C48 216 26 194 26 162 C26 130 48 108 76 102 C84 82 96 66 120 66 Z"/>
+        <!-- Top Cusped Lotus Badge -->
+        <path class="badge-fill"
+          d="M298 2 C312 18 328 22 340 26 C352 30 358 42 354 56 C348 72 326 76 298 76 C270 76 248 72 242 56 C238 42 244 30 256 26 C268 22 284 18 298 2 Z"/>
+        <!-- Bottom Filigree Motif -->
+        <use href="#filigreeMotif" transform="translate(298,266) scale(.72)"/>
+      </svg>
+      <!-- Calendar Icon inside Top Badge -->
+      <svg class="d-badge-icon" viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="8" y="12" width="32" height="28" rx="4" fill="none" stroke="#8c540d" stroke-width="2.6"/>
+        <line x1="8" y1="20" x2="40" y2="20" stroke="#8c540d" stroke-width="2.4"/>
+        <line x1="16" y1="7" x2="16" y2="15" stroke="#8c540d" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="32" y1="7" x2="32" y2="15" stroke="#8c540d" stroke-width="2.8" stroke-linecap="round"/>
+        <circle cx="16" cy="26" r="1.8" fill="#5b0810"/><circle cx="24" cy="26" r="1.8" fill="#5b0810"/><circle cx="32" cy="26" r="1.8" fill="#5b0810"/>
+        <circle cx="16" cy="33" r="1.8" fill="#5b0810"/><circle cx="24" cy="33" r="2.6" fill="#c88d28"/><circle cx="32" cy="33" r="1.8" fill="#5b0810"/>
+      </svg>
+      <div class="d-card-body">
+        <span class="d-label">Wedding Date</span>
+        <span class="d-val">Sunday, 6th December 2026</span>
+        <span class="d-subval">(20th Vrischikam, 1202)</span>
+      </div>
+    </div>
+
+    <!-- CARD 2: MUHURTHAM -->
+    <div class="d-card c-muhurtham">
+      <svg class="d-card-svg" viewBox="0 0 548 250" aria-hidden="true">
+        <path class="plaque-fill"
+          d="M218 58 L112 58 C88 58 76 74 68 92 C40 96 18 118 18 145 C18 172 40 194 68 198 C76 216 88 232 112 232 L242 232 L274 244 L306 232 L436 232 C460 232 472 216 480 198 C508 194 530 172 530 145 C530 118 508 96 480 92 C472 74 460 58 436 58 L330 58 Z"/>
+        <path class="plaque-inner"
+          d="M116 66 L432 66 C454 66 464 80 472 98 C498 102 520 120 520 145 C520 170 498 188 472 192 C464 210 454 224 432 224 L116 224 C94 224 84 210 76 192 C50 188 28 170 28 145 C28 120 50 102 76 98 C84 80 94 66 116 66 Z"/>
+        <path class="badge-fill"
+          d="M274 2 C288 18 304 22 316 26 C328 30 334 42 330 56 C324 72 302 76 274 76 C246 76 224 72 218 56 C214 42 220 30 232 26 C244 22 260 18 274 2 Z"/>
+        <use href="#filigreeMotif" transform="translate(274,232) scale(.72)"/>
+      </svg>
+      <!-- Clock Icon inside Top Badge -->
+      <svg class="d-badge-icon" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="15" fill="none" stroke="#5b0810" stroke-width="3"/>
+        <polyline points="24,14 24,24 31,24" fill="none" stroke="#5b0810" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="d-card-body">
+        <span class="d-label">Muhurtham</span>
+        <span class="d-val">11:30 AM &ndash; 12:30 PM</span>
+      </div>
+    </div>
+
+    <!-- CARD 3: VENUE -->
+    <div class="d-card c-venue">
+      <svg class="d-card-svg" viewBox="0 0 636 324" aria-hidden="true">
+        <path class="plaque-fill"
+          d="M262 58 L118 58 C92 58 78 76 70 100 C36 108 12 138 12 180 C12 222 36 252 70 260 C78 284 92 302 118 302 L286 302 L318 314 L350 302 L518 302 C544 302 558 284 566 260 C600 252 624 222 624 180 C624 138 600 108 566 100 C558 76 544 58 518 58 L374 58 Z"/>
+        <path class="plaque-inner"
+          d="M122 66 L514 66 C538 66 550 84 558 106 C590 114 614 140 614 180 C614 220 590 246 558 254 C550 276 538 294 514 294 L122 294 C98 294 86 276 78 254 C46 246 22 220 22 180 C22 140 46 114 78 106 C86 84 98 66 122 66 Z"/>
+        <path class="badge-fill"
+          d="M318 2 C332 18 348 22 360 26 C372 30 378 42 374 56 C368 72 346 76 318 76 C290 76 268 72 262 56 C258 42 264 30 276 26 C288 22 304 18 318 2 Z"/>
+        <use href="#filigreeMotif" transform="translate(318,302) scale(.72)"/>
+      </svg>
+      <!-- Location Pin Icon inside Top Badge -->
+      <svg class="d-badge-icon" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 7 C15.7 7 9 13.5 9 21.5 C9 31.8 24 42 24 42 C24 42 39 31.8 39 21.5 C39 13.5 32.3 7 24 7 Z" fill="none" stroke="#5b0810" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="24" cy="21" r="5.5" fill="none" stroke="#5b0810" stroke-width="2.8"/>
+      </svg>
+      <div class="d-card-body">
+        <span class="d-label">Venue</span>
+        <span class="d-val">Gangothri Kalyanam Mandapam</span>
+        <span class="d-subval">Rajaji Road, Shenoys,<br>Ernakulam, Kerala.</span>
+      </div>
+    </div>
+
+    <!-- BOTTOM CENTER: Sacred Banana Leaf, 5-Wick Nilavilakku, Purna Kalash, Lotuses & Jasmine -->
+    <div class="d-centerpiece">
+      <div class="cp-rise">
+        <div class="d-lamp-halo"></div>
+        <span class="d-wick-flame w1"></span>
+        <span class="d-wick-flame w2"></span>
+        <span class="d-wick-flame w3"></span>
+        <span class="d-wick-flame w4"></span>
+        <span class="d-wick-flame w5"></span>
+        <img src="assets/details-centerpiece.webp" alt="Sacred Nilavilakku lamp, Purna Kalash, and pink lotuses on a banana leaf">
+      </div>
+    </div>
+  </div>
+
+  <div class="fx" id="details-fx"></div>
+</section>
+
+<!-- ==================== SECTION 5: MOMENTS ==================== -->
+<section class="moments-sec" id="moments-sec" aria-label="Cherished Moments">
+  <div class="paper"></div>
+  <div class="glow"></div>
+
+  <!-- Center 941 x 1770 Design Artboard -->
+  <div class="stage">
+    <!-- Top Arch Shoulder Devotional Flowers (Sacred Lotus & Temple Jasmine PNG) -->
+    <div class="m-top-flower l"><div class="f-bloom"><div class="f-sway"><img src="assets/details-flower.webp" alt=""></div></div></div>
+    <div class="m-top-flower r"><div class="f-bloom"><div class="f-sway"><img src="assets/details-flower.webp" alt=""></div></div></div>
+
+    <!-- Ornate Golden Scalloped Temple Arch & Beaded Border -->
+    <svg class="arch-svg" viewBox="0 0 941 1770" aria-hidden="true">
+      <defs>
+        <!-- 8-Petal Ornate Lotus-Diamond Motif for Grid Intersections -->
+        <g id="gridLotusOrn">
+          <path d="M0 -30 C6 -17 10 -9 0 0 C-10 -9 -6 -17 0 -30 Z
+                   M0 30 C6 17 10 9 0 0 C-10 9 -6 17 0 30 Z
+                   M-30 0 C-17 -6 -9 -10 0 0 C-9 10 -17 6 -30 0 Z
+                   M30 0 C17 -6 9 -10 0 0 C9 10 17 6 30 0 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.3"/>
+          <path d="M0 0 C10 -14 21 -18 24 -12 C27 -6 16 -1 0 0 Z
+                   M0 0 C-10 -14 -21 -18 -24 -12 C-27 -6 -16 -1 0 0 Z
+                   M0 0 C10 14 21 18 24 12 C27 6 16 1 0 0 Z
+                   M0 0 C-10 14 -21 18 -24 12 C-27 6 -16 1 0 0 Z" fill="url(#archGold)" opacity=".88" stroke="#965d0e" stroke-width="1.1"/>
+          <circle cx="0" cy="0" r="3.8" fill="#fff3c8" stroke="#965d0e" stroke-width="1.1"/>
+        </g>
+      </defs>
+
+      <!-- Top Lotus Palmette Finial Crown -->
+      <g transform="translate(0, -34)">
+        <g class="arch-crown">
+          <path d="M470.5 64 C478 82 484 98 470.5 116 C457 98 463 82 470.5 64 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+          <path d="M470.5 116 C482 94 498 86 506 96 C512 104 496 118 470.5 122 Z
+                   M470.5 116 C459 94 443 86 435 96 C429 104 445 118 470.5 122 Z
+                   M470.5 122 C490 110 514 112 518 124 C520 132 496 136 470.5 132 Z
+                   M470.5 122 C451 110 427 112 423 124 C421 132 445 136 470.5 132 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.4"/>
+          <path d="M470.5 126 L496 152 L470.5 178 L445 152 Z" fill="none" stroke="url(#archGold)" stroke-width="3"/>
+          <path d="M470.5 135 L487 152 L470.5 169 L454 152 Z" fill="url(#archGold)" opacity=".75"/>
+        </g>
+      </g>
+
+      <!-- Outer Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw outer" pathLength="1"
+        d="M445 118
+           C408 96 356 110 334 152
+           C288 144 232 172 216 222
+           C164 220 114 244 96 278
+           C64 272 38 294 38 328
+           L38 1702
+           C38 1728 56 1742 84 1742
+           L470.5 1742"/>
+      <path class="arch-draw outer" pathLength="1"
+        d="M496 118
+           C533 96 585 110 607 152
+           C653 144 709 172 725 222
+           C777 220 827 244 845 278
+           C877 272 903 294 903 328
+           L903 1702
+           C903 1728 885 1742 857 1742
+           L470.5 1742"/>
+
+      <!-- Inner Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw inner" pathLength="1"
+        d="M452 128
+           C414 110 366 122 344 164
+           C298 156 244 182 228 234
+           C176 232 126 254 108 290
+           C76 286 52 304 52 336
+           L52 1692
+           C52 1716 66 1728 90 1728
+           L470.5 1728"/>
+      <path class="arch-draw inner" pathLength="1"
+        d="M489 128
+           C527 110 575 122 597 164
+           C643 156 697 182 713 234
+           C765 232 815 254 833 290
+           C865 286 889 304 889 336
+           L889 1692
+           C889 1716 875 1728 851 1728
+           L470.5 1728"/>
+
+      <!-- Beaded Gold Pearl Channel inside the Arch & Bottom Border -->
+      <path class="arch-beads"
+        d="M448 123
+           C411 103 361 116 339 158
+           C293 150 238 177 222 228
+           C170 226 120 249 102 284
+           M493 123
+           C530 103 580 116 602 158
+           C648 150 703 177 719 228
+           C771 226 821 249 839 284
+           M88 1735 L853 1735"/>
+    </svg>
+
+    <!-- Title: "Moments" -->
+    <div class="m-title-wrap">
+      <h2 class="m-title" data-text="Moments">Moments</h2>
+    </div>
+
+    <!-- Ornate Filigree & Swash Flourish Divider below "Moments" -->
+    <svg class="m-orn-mid" viewBox="-260 -36 520 72" aria-hidden="true">
+      <path d="M-235 2 C-175 10 -115 -6 -54 0 M54 0 C115 -6 175 12 232 -6 C248 -12 244 -26 230 -20 C220 -16 224 -4 236 -4" fill="none" stroke="url(#archGold)" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M120 4 C162 12 198 20 222 14" fill="none" stroke="url(#archGold)" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-218 2 C-204 -8 -188 -8 -176 2 C-188 10 -204 10 -218 2 Z" fill="url(#archGold)"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Subtitle: "A collection of our cherished moments together." -->
+    <p class="m-sub">
+      <span class="m-sub-line" style="--mli:0">A collection of our cherished</span>
+      <span class="m-sub-line" style="--mli:1">moments together.</span>
+    </p>
+
+    <!-- ROW 1: Top Large Cusped Arch Photo -->
+    <div class="m-photo p1">
+      <div class="p-in">
+        <div class="p-float">
+          <img src="assets/moments-1.webp?v=3" alt="Aswin and Yashaswini sharing a tender forehead-to-forehead moment">
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Grid Ornament 1 -->
+    <svg class="m-grid-orn o1" viewBox="-36 -36 72 72" aria-hidden="true">
+      <use href="#gridLotusOrn"/>
+    </svg>
+
+    <!-- ROW 2: Left & Right Cartouche Photos -->
+    <div class="m-photo p2">
+      <div class="p-in">
+        <div class="p-float">
+          <img src="assets/moments-2.webp?v=3" alt="Aswin and Yashaswini smiling together">
+        </div>
+      </div>
+    </div>
+
+    <div class="m-photo p3">
+      <div class="p-in">
+        <div class="p-float">
+          <img src="assets/moments-3.webp?v=3" alt="Aswin and Yashaswini close-up portrait">
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Grid Ornament 2 -->
+    <svg class="m-grid-orn o2" viewBox="-36 -36 72 72" aria-hidden="true">
+      <use href="#gridLotusOrn"/>
+    </svg>
+
+    <!-- ROW 3: Left & Right Cartouche Photos -->
+    <div class="m-photo p4">
+      <div class="p-in">
+        <div class="p-float">
+          <img src="assets/moments-4.webp?v=3" alt="Yashaswini leaning on Aswin's shoulder">
+        </div>
+      </div>
+    </div>
+
+    <div class="m-photo p5">
+      <div class="p-in">
+        <div class="p-float">
+          <img src="assets/moments-5.webp?v=3" alt="Aswin and Yashaswini together by the backwaters">
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM CENTER: 5-Wick Brass Nilavilakku Lamp with Marigold & Jasmine Base -->
+    <div class="m-lamp">
+      <div class="l-rise">
+        <div class="m-lamp-halo"></div>
+        <span class="m-wick-flame w1"></span>
+        <span class="m-wick-flame w2"></span>
+        <span class="m-wick-flame w3"></span>
+        <span class="m-wick-flame w4"></span>
+        <span class="m-wick-flame w5"></span>
+        <img src="assets/moments-lamp.webp" alt="Sacred brass Nilavilakku lamp adorned with marigold and jasmine flowers">
+      </div>
+    </div>
+
+    <!-- BOTTOM CORNERS: Blooming Pink Lotuses -->
+    <div class="m-lotus l"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+    <div class="m-lotus r"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+  </div>
+
+  <div class="fx" id="moments-fx"></div>
+</section>
+
+<!-- ==================== SECTION 6: THANK YOU ==================== -->
+<section class="thankyou-sec" id="thankyou-sec" aria-label="Thank You">
+  <div class="paper"></div>
+  <div class="glow"></div>
+
+  <!-- Center 941 x 1820 Design Artboard -->
+  <div class="stage">
+    <!-- Hanging Garlands with Temple Bells (Top Left & Top Right) -->
+    <div class="ty-garland l" data-bell><div class="drop"><div class="sway"><img src="assets/ty-garland.webp" alt=""></div></div></div>
+    <div class="ty-garland r" data-bell><div class="drop"><div class="sway"><img src="assets/ty-garland.webp" alt=""></div></div></div>
+
+    <!-- Ornate Golden Scalloped Temple Arch & Beaded Border -->
+    <svg class="arch-svg" viewBox="0 0 941 1820" aria-hidden="true">
+      <!-- Top Lotus Palmette Finial Crown -->
+      <g transform="translate(0, -42)">
+        <g class="arch-crown">
+          <path d="M470.5 64 C478 82 484 98 470.5 116 C457 98 463 82 470.5 64 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.5"/>
+          <path d="M470.5 116 C482 94 498 86 506 96 C512 104 496 118 470.5 122 Z
+                   M470.5 116 C459 94 443 86 435 96 C429 104 445 118 470.5 122 Z
+                   M470.5 122 C490 110 514 112 518 124 C520 132 496 136 470.5 132 Z
+                   M470.5 122 C451 110 427 112 423 124 C421 132 445 136 470.5 132 Z" fill="url(#archGold)" stroke="#965d0e" stroke-width="1.4"/>
+          <path d="M470.5 126 L496 152 L470.5 178 L445 152 Z" fill="none" stroke="url(#archGold)" stroke-width="3"/>
+          <path d="M470.5 135 L487 152 L470.5 169 L454 152 Z" fill="url(#archGold)" opacity=".75"/>
+        </g>
+      </g>
+
+      <!-- Outer Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw outer" pathLength="1"
+        d="M445 105
+           C406 82 352 98 326 140
+           C278 132 222 160 206 210
+           C154 208 108 232 92 266
+           C60 260 38 282 38 316
+           L38 1752
+           C38 1778 56 1792 84 1792
+           L470.5 1792"/>
+      <path class="arch-draw outer" pathLength="1"
+        d="M496 105
+           C535 82 589 98 615 140
+           C663 132 719 160 735 210
+           C787 208 833 232 849 266
+           C881 260 903 282 903 316
+           L903 1752
+           C903 1778 885 1792 857 1792
+           L470.5 1792"/>
+
+      <!-- Inner Cusped Temple Arch (Left & Right halves) -->
+      <path class="arch-draw inner" pathLength="1"
+        d="M452 115
+           C414 96 362 110 336 152
+           C288 144 234 170 218 222
+           C166 220 120 242 104 278
+           C72 274 52 292 52 324
+           L52 1742
+           C52 1766 66 1778 90 1778
+           L470.5 1778"/>
+      <path class="arch-draw inner" pathLength="1"
+        d="M489 115
+           C527 96 579 110 605 152
+           C653 144 707 170 723 222
+           C775 220 821 242 837 278
+           C869 274 889 292 889 324
+           L889 1742
+           C889 1766 875 1778 851 1778
+           L470.5 1778"/>
+
+      <!-- Beaded Gold Pearl Channel inside the Arch & Bottom Border -->
+      <path class="arch-beads"
+        d="M448 110
+           C410 89 357 104 331 146
+           C283 138 228 165 212 216
+           C160 214 114 237 98 272
+           M493 110
+           C531 89 584 104 610 146
+           C658 138 713 165 729 216
+           C781 214 827 237 843 272
+           M88 1785 L853 1785"/>
+    </svg>
+
+    <!-- Header: "Thank You" -->
+    <div class="ty-title-wrap">
+      <h2 class="ty-title" data-text="Thank You">Thank You</h2>
+    </div>
+
+    <!-- Ornate Filigree & Swash Flourish Divider below "Thank You" -->
+    <svg class="ty-orn-mid" viewBox="-260 -36 520 72" aria-hidden="true">
+      <path d="M-235 2 C-175 10 -115 -6 -54 0 M54 0 C115 -6 175 12 232 -6 C248 -12 244 -26 230 -20 C220 -16 224 -4 236 -4" fill="none" stroke="url(#archGold)" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M120 4 C162 12 198 20 222 14" fill="none" stroke="url(#archGold)" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-218 2 C-204 -8 -188 -8 -176 2 C-188 10 -204 10 -218 2 Z" fill="url(#archGold)"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Gratitude Text Message -->
+    <p class="ty-msg">
+      <span class="ty-msg-line" style="--tli:0">With heartfelt gratitude, we thank you for</span>
+      <span class="ty-msg-line" style="--tli:1">your love, blessings and support in making</span>
+      <span class="ty-msg-line" style="--tli:2">our wedding a truly special celebration.</span>
+    </p>
+
+    <!-- Filigree Divider below message -->
+    <svg class="ty-orn-div" viewBox="-180 -34 360 68" aria-hidden="true">
+      <path d="M-168 0 L-54 0 M54 0 L168 0" stroke="url(#archGold)" stroke-width="2.2" stroke-linecap="round"/>
+      <use href="#filigreeMotif"/>
+    </svg>
+
+    <!-- Two Family Columns -->
+    <div class="ty-families-wrap">
+      <div class="ty-col-divider"></div>
+
+      <!-- GROOM'S FAMILY COLUMN -->
+      <div class="ty-col groom">
+        <div class="ty-badge" style="--bdl:1.6s">
+          <svg viewBox="0 0 320 74">
+            <path d="M26 6 L294 6 C308 6 316 18 316 37 C316 56 308 68 294 68 L26 68 C12 68 4 56 4 37 C4 18 12 6 26 6 Z" fill="#6b0e17" stroke="url(#archGold)" stroke-width="3"/>
+            <path d="M30 11 L290 11 C302 11 310 20 310 37 C310 54 302 63 290 63 L30 63 C18 63 10 54 10 37 C10 20 18 11 30 11 Z" fill="none" stroke="#d9a441" stroke-width="1.2" opacity=".7"/>
+          </svg>
+          <span class="ty-badge-title">Groom's Family</span>
+        </div>
+
+        <div class="ty-names">
+          Mr. Anand &amp; Mrs. Priya
+          <span class="subname">Miss. Aiswarya</span>
+        </div>
+
+        <div class="ty-quote-wrap">
+          <img class="ty-sprig l" src="assets/ty-branch.webp" alt="">
+          <p class="ty-quote">
+            &ldquo;We seek your continued blessings for the couple's happy and prosperous journey ahead.&rdquo;
+          </p>
+          <img class="ty-sprig r" src="assets/ty-branch.webp" alt="">
+        </div>
+      </div>
+
+      <!-- BRIDE'S FAMILY COLUMN -->
+      <div class="ty-col bride">
+        <div class="ty-badge" style="--bdl:1.75s">
+          <svg viewBox="0 0 320 74">
+            <path d="M26 6 L294 6 C308 6 316 18 316 37 C316 56 308 68 294 68 L26 68 C12 68 4 56 4 37 C4 18 12 6 26 6 Z" fill="#6b0e17" stroke="url(#archGold)" stroke-width="3"/>
+            <path d="M30 11 L290 11 C302 11 310 20 310 37 C310 54 302 63 290 63 L30 63 C18 63 10 54 10 37 C10 20 18 11 30 11 Z" fill="none" stroke="#d9a441" stroke-width="1.2" opacity=".7"/>
+          </svg>
+          <span class="ty-badge-title">Bride's Family</span>
+        </div>
+
+        <div class="ty-names">
+          Mr. Venkiteshwara Bhatt &amp; Mrs. Padmaa
+          <span class="subname">Mr. Yogeshwara</span>
+        </div>
+
+        <div class="ty-quote-wrap">
+          <img class="ty-sprig l" src="assets/ty-branch.webp" alt="">
+          <p class="ty-quote">
+            &ldquo;We pray for a life filled with love, understanding and enduring happiness for the couple.&rdquo;
+          </p>
+          <img class="ty-sprig r" src="assets/ty-branch.webp" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Location & QR Code Cartouche Card (Ornate Rectangle Box) -->
+    <div class="ty-card">
+      <svg class="ty-card-svg" viewBox="0 0 820 270">
+        <!-- Outer Golden Rectangle with Corner Brackets & Center Cusps -->
+        <rect x="6" y="6" width="808" height="258" rx="20" ry="20" fill="rgba(253,245,230,.88)" stroke="url(#archGold)" stroke-width="3"/>
+        <!-- Inner Fine Gold Inset Border -->
+        <rect x="16" y="16" width="788" height="238" rx="14" ry="14" fill="none" stroke="#d9a648" stroke-width="1.3" opacity=".7"/>
+        <!-- Corner Scroll Accents -->
+        <path d="M16 42 C26 42 36 32 36 22 M784 42 C774 42 764 32 764 22 M16 228 C26 228 36 238 36 248 M784 228 C774 228 764 238 764 248" fill="none" stroke="url(#archGold)" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- Top & Bottom Center Diamond / Lotus Point Motif -->
+        <use href="#filigreeMotif" transform="translate(410, 6) scale(.52)"/>
+        <use href="#filigreeMotif" transform="translate(410, 264) scale(.52)"/>
+      </svg>
+
+      <div class="ty-card-body">
+        <div class="ty-card-loc">
+          <!-- Location pin icon -->
+          <svg class="ty-card-pin" viewBox="0 0 48 48">
+            <path d="M24 7 C15.7 7 9 13.5 9 21.5 C9 31.8 24 42 24 42 C24 42 39 31.8 39 21.5 C39 13.5 32.3 7 24 7 Z" fill="#6b0e17" stroke="url(#archGold)" stroke-width="2.6" stroke-linejoin="round"/>
+            <circle cx="24" cy="21" r="5.5" fill="#fff3c8" stroke="#6b0e17" stroke-width="2.4"/>
+          </svg>
+          <div class="ty-card-venue">
+            Gangothri<br>Kalyana Mandapam
+          </div>
+          <div class="ty-card-scan">
+            Scan for Location
+          </div>
+        </div>
+
+        <div class="ty-card-divider"></div>
+
+        <div class="ty-card-qr">
+          <a class="ty-qr-link" href="https://maps.google.com/?q=Gangothri+Kalyanam+Mandapam+Rajaji+Road+Shenoys+Ernakulam+Kerala" target="_blank" rel="noopener" title="Open Venue on Google Maps">
+            <img src="assets/ty-qr.webp" alt="Scan QR Code for Gangothri Kalyanam Mandapam venue location">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM CENTER: 5-Wick Brass Nilavilakku Lamp with Mandala Base -->
+    <div class="ty-centerpiece">
+      <div class="cp-rise">
+        <div class="ty-lamp-halo"></div>
+        <span class="ty-wick-flame w1"></span>
+        <span class="ty-wick-flame w2"></span>
+        <span class="ty-wick-flame w3"></span>
+        <span class="ty-wick-flame w4"></span>
+        <span class="ty-wick-flame w5"></span>
+        <img src="assets/ty-lamp.webp" alt="Sacred Nilavilakku lamp on auspicious floral mandala rangoli">
+      </div>
+    </div>
+
+    <!-- BOTTOM CORNERS: Blooming Pink Lotuses -->
+    <div class="ty-lotus l"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+    <div class="ty-lotus r"><div class="rise"><div class="breathe"><img src="assets/lotus-bridge.webp" alt=""></div></div></div>
+  </div>
+
+  <div class="fx" id="thankyou-fx"></div>
+</section>
+
+<script>
+(() => {
+  const hero = document.getElementById('hero');
+  const fx = document.getElementById('fx');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // split names into animated letters
+  document.querySelectorAll('[data-split]').forEach(el => {
+    const t = el.textContent.trim();
+    el.setAttribute('aria-label', t);
+    el.innerHTML = [...t].map((c, i) => `<span class="ch" aria-hidden="true" style="--i:${i}">${c}</span>`).join('');
+  });
+
+  // remove curtain after opening
+  setTimeout(() => document.querySelector('.curtain')?.remove(), reduce ? 0 : 2700);
+  if (reduce) {
+    document.getElementById('story')?.classList.add('in-view');
+    document.getElementById('couple-sec')?.classList.add('in-view');
+    document.getElementById('details-sec')?.classList.add('in-view');
+    document.getElementById('moments-sec')?.classList.add('in-view');
+    return;
+  }
+
+  // sparkles around crest, names, ampersand
+  const spots = [[50,4],[38,9],[63,8],[22,61],[78,60],[30,67],[70,69],[48,64],[18,72],[84,73],[52,71],[40,81],[60,81],[50,90]];
+  spots.forEach(([x, y], i) => {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.style.left = x + '%'; s.style.top = y + '%';
+    s.style.setProperty('--t', (1.8 + Math.random() * 2.2).toFixed(2) + 's');
+    s.style.setProperty('--dl', (5 + i * .37).toFixed(2) + 's');
+    fx.appendChild(s);
+  });
+
+  // falling petals
+  const imgs = ['assets/marigold.webp'];
+  const W = () => hero.clientWidth, H = () => hero.clientHeight;
+  let live = 0;
+  function petal(x, y, burst) {
+    if (live > 34) return;
+    live++;
+    const p = document.createElement(Math.random() < .3 ? 'img' : 'div');
+    const k = W() / 941;
+    let size;
+    if (p.tagName === 'IMG') {
+      p.src = imgs[0]; p.alt = '';
+      size = (12 + Math.random() * 12) * k * 2.2;
+      p.style.width = size + 'px';
+    } else {
+      size = (7 + Math.random() * 9) * k * 2.2;
+      const orange = Math.random() < .8;
+      p.style.cssText = `width:${size}px;height:${size * 1.5}px;border-radius:50% 0 50% 0;background:${orange ? 'linear-gradient(135deg,#ffb03a,#f06a0c)' : 'linear-gradient(135deg,#fff,#f3e3c0)'};box-shadow:inset 0 0 3px rgba(0,0,0,.15)`;
+    }
+    p.classList.add('petal');
+    fx.appendChild(p);
+    const sx = x ?? Math.random() * W();
+    const sy = y ?? -60;
+    const drift = (Math.random() - .5) * W() * (burst ? .9 : .35);
+    const endY = H() + 80;
+    const dur = burst ? 2600 + Math.random() * 1800 : 7000 + Math.random() * 5000;
+    const rot = (Math.random() - .5) * 900;
+    const frames = burst
+      ? [
+          { transform: `translate(${sx}px,${sy}px) rotate(0) scale(.3)`, opacity: 1 },
+          { transform: `translate(${sx + drift * .5}px,${sy - 120 - Math.random() * 160}px) rotate(${rot * .3}deg) scale(1)`, opacity: 1, offset: .25 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg) scale(.9)`, opacity: .9 }
+        ]
+      : [
+          { transform: `translate(${sx}px,${sy}px) rotate(0)`, opacity: 0 },
+          { transform: `translate(${sx + drift * .4}px,${endY * .3}px) rotate(${rot * .3}deg)`, opacity: .95, offset: .2 },
+          { transform: `translate(${sx - drift * .3}px,${endY * .65}px) rotate(${rot * .7}deg)`, opacity: .9, offset: .6 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg)`, opacity: .6 }
+        ];
+    const a = p.animate(frames, { duration: dur, easing: burst ? 'cubic-bezier(.2,.6,.4,1)' : 'linear', fill: 'forwards' });
+    a.onfinish = () => { p.remove(); live--; };
+  }
+  setTimeout(() => {
+    for (let i = 0; i < 6; i++) setTimeout(() => petal(), i * 350);
+    setInterval(() => { if (!document.hidden) petal(); }, 1100);
+  }, 5200);
+
+  // bells ring now and then + on tap
+  const bells = [...hero.querySelectorAll('[data-bell]')];
+  function ring(el) {
+    el.classList.remove('ring'); void el.offsetWidth; el.classList.add('ring');
+    setTimeout(() => el.classList.remove('ring'), 1900);
+  }
+  setTimeout(() => setInterval(() => ring(bells[Math.floor(Math.random() * bells.length)]), 3800), 4000);
+
+  hero.addEventListener('pointerdown', e => {
+    if (e.target.closest('.scroll-cue')) return;
+    const r = hero.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    for (let i = 0; i < 14; i++) petal(x, y, true);
+    bells.forEach((b, i) => setTimeout(() => ring(b), i * 90));
+  });
+
+  // ==================== OUR STORY SECTION ANIMATIONS ====================
+  const story = document.getElementById('story');
+  const storyFx = document.getElementById('story-fx');
+  if (!story || !storyFx) return;
+
+  // Sparkles around arch crown, Our Story title, Gathbandhan knot, and Nilavilakku lamp
+  const storySpots = [
+    [50, 7], [34, 15], [66, 15],
+    [28, 24], [72, 24], [50, 31],
+    [49, 66], [42, 68], [57, 68],
+    [50, 76], [43, 77], [58, 77],
+    [35, 84], [65, 84]
+  ];
+  storySpots.forEach(([x, y], i) => {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.style.left = x + '%'; s.style.top = y + '%';
+    s.style.setProperty('--t', (1.9 + Math.random() * 2.1).toFixed(2) + 's');
+    s.style.setProperty('--dl', (1.8 + i * .28).toFixed(2) + 's');
+    storyFx.appendChild(s);
+  });
+
+  let storyLive = 0;
+  let storyActive = false;
+  const sBells = [...story.querySelectorAll('[data-bell]')];
+
+  function storyPetal(x, y, burst) {
+    if (storyLive > 30) return;
+    storyLive++;
+    const SW = story.clientWidth, SH = story.clientHeight;
+    const k = SW / 941;
+    const roll = Math.random();
+    let p;
+    if (roll < .55) {
+      p = document.createElement('img');
+      p.src = Math.random() < .68 ? 'assets/story-petal.png' : 'assets/marigold.webp';
+      p.alt = '';
+      const size = (11 + Math.random() * 11) * k * 2.1;
+      p.style.width = size + 'px';
+    } else {
+      p = document.createElement('div');
+      const size = (6 + Math.random() * 8) * k * 2.1;
+      const pink = Math.random() < .65;
+      p.style.cssText = `width:${size}px;height:${size * 1.45}px;border-radius:50% 0 50% 0;background:${pink ? 'linear-gradient(135deg,#f8a4b8,#d94b6b)' : 'linear-gradient(135deg,#ffb03a,#f06a0c)'};box-shadow:inset 0 0 3px rgba(0,0,0,.14)`;
+    }
+    p.classList.add('petal');
+    storyFx.appendChild(p);
+    const sx = x ?? Math.random() * SW;
+    const sy = y ?? -50;
+    const drift = (Math.random() - .5) * SW * (burst ? .85 : .32);
+    const endY = SH + 70;
+    const dur = burst ? 2400 + Math.random() * 1600 : 7200 + Math.random() * 4800;
+    const rot = (Math.random() - .5) * 840;
+    const frames = burst
+      ? [
+          { transform: `translate(${sx}px,${sy}px) rotate(0) scale(.3)`, opacity: 1 },
+          { transform: `translate(${sx + drift * .5}px,${sy - 110 - Math.random() * 150}px) rotate(${rot * .3}deg) scale(1)`, opacity: 1, offset: .25 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg) scale(.9)`, opacity: .88 }
+        ]
+      : [
+          { transform: `translate(${sx}px,${sy}px) rotate(0)`, opacity: 0 },
+          { transform: `translate(${sx + drift * .4}px,${endY * .3}px) rotate(${rot * .3}deg)`, opacity: .92, offset: .2 },
+          { transform: `translate(${sx - drift * .3}px,${endY * .65}px) rotate(${rot * .7}deg)`, opacity: .88, offset: .6 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg)`, opacity: .55 }
+        ];
+    const a = p.animate(frames, { duration: dur, easing: burst ? 'cubic-bezier(.2,.6,.4,1)' : 'linear', fill: 'forwards' });
+    a.onfinish = () => { p.remove(); storyLive--; };
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !storyActive) {
+        storyActive = true;
+        story.classList.add('in-view');
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) setTimeout(() => storyPetal(), i * 380);
+          setInterval(() => { if (!document.hidden) storyPetal(); }, 1350);
+          setInterval(() => {
+            if (!document.hidden && sBells.length) {
+              ring(sBells[Math.floor(Math.random() * sBells.length)]);
+            }
+          }, 4200);
+        }, 2200);
+      }
+    });
+  }, { threshold: 0.16 });
+  io.observe(story);
+
+  story.addEventListener('pointerdown', e => {
+    const r = story.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    for (let i = 0; i < 14; i++) storyPetal(x, y, true);
+    sBells.forEach((b, i) => setTimeout(() => ring(b), i * 110));
+  });
+
+  // ==================== THE COUPLE SECTION ANIMATIONS ====================
+  const coupleSec = document.getElementById('couple-sec');
+  const coupleFx = document.getElementById('couple-fx');
+  if (!coupleSec || !coupleFx) return;
+
+  // Sparkles around arch crown, "The Couple" title, Groom/Bride arch crowns, names, and lamp wicks
+  const coupleSpots = [
+    [50, 6], [35, 13], [65, 13],
+    [36, 22], [20, 40], [74, 34], [82, 39],
+    [76, 47], [22, 63], [64, 53], [88, 62],
+    [16, 82], [26, 83], [78, 88], [50, 95]
+  ];
+  coupleSpots.forEach(([x, y], i) => {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.style.left = x + '%'; s.style.top = y + '%';
+    s.style.setProperty('--t', (1.8 + Math.random() * 2.1).toFixed(2) + 's');
+    s.style.setProperty('--dl', (1.5 + i * .26).toFixed(2) + 's');
+    coupleFx.appendChild(s);
+  });
+
+  let coupleLive = 0;
+  let coupleActive = false;
+
+  function couplePetal(x, y, burst) {
+    if (coupleLive > 30) return;
+    coupleLive++;
+    const CW = coupleSec.clientWidth, CH = coupleSec.clientHeight;
+    const k = CW / 941;
+    const roll = Math.random();
+    let p;
+    if (roll < .55) {
+      p = document.createElement('img');
+      p.src = Math.random() < .68 ? 'assets/story-petal.png' : 'assets/marigold.webp';
+      p.alt = '';
+      const size = (11 + Math.random() * 11) * k * 2.1;
+      p.style.width = size + 'px';
+    } else {
+      p = document.createElement('div');
+      const size = (6 + Math.random() * 8) * k * 2.1;
+      const pink = Math.random() < .6;
+      p.style.cssText = `width:${size}px;height:${size * 1.45}px;border-radius:50% 0 50% 0;background:${pink ? 'linear-gradient(135deg,#f8a4b8,#d94b6b)' : 'linear-gradient(135deg,#fffdf5,#f1dfb6)'};box-shadow:inset 0 0 3px rgba(0,0,0,.14)`;
+    }
+    p.classList.add('petal');
+    coupleFx.appendChild(p);
+    const sx = x ?? Math.random() * CW;
+    const sy = y ?? -50;
+    const drift = (Math.random() - .5) * CW * (burst ? .85 : .32);
+    const endY = CH + 70;
+    const dur = burst ? 2400 + Math.random() * 1600 : 7200 + Math.random() * 4800;
+    const rot = (Math.random() - .5) * 840;
+    const frames = burst
+      ? [
+          { transform: `translate(${sx}px,${sy}px) rotate(0) scale(.3)`, opacity: 1 },
+          { transform: `translate(${sx + drift * .5}px,${sy - 110 - Math.random() * 150}px) rotate(${rot * .3}deg) scale(1)`, opacity: 1, offset: .25 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg) scale(.9)`, opacity: .88 }
+        ]
+      : [
+          { transform: `translate(${sx}px,${sy}px) rotate(0)`, opacity: 0 },
+          { transform: `translate(${sx + drift * .4}px,${endY * .3}px) rotate(${rot * .3}deg)`, opacity: .92, offset: .2 },
+          { transform: `translate(${sx - drift * .3}px,${endY * .65}px) rotate(${rot * .7}deg)`, opacity: .88, offset: .6 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg)`, opacity: .55 }
+        ];
+    const a = p.animate(frames, { duration: dur, easing: burst ? 'cubic-bezier(.2,.6,.4,1)' : 'linear', fill: 'forwards' });
+    a.onfinish = () => { p.remove(); coupleLive--; };
+  }
+
+  const coupleIo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !coupleActive) {
+        coupleActive = true;
+        coupleSec.classList.add('in-view');
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) setTimeout(() => couplePetal(), i * 380);
+          setInterval(() => { if (!document.hidden) couplePetal(); }, 1400);
+        }, 2000);
+      }
+    });
+  }, { threshold: 0.16 });
+  coupleIo.observe(coupleSec);
+
+  coupleSec.addEventListener('pointerdown', e => {
+    const r = coupleSec.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    for (let i = 0; i < 14; i++) couplePetal(x, y, true);
+  });
+
+  // ==================== WEDDING DETAILS SECTION ANIMATIONS ====================
+  const detailsSec = document.getElementById('details-sec');
+  const detailsFx = document.getElementById('details-fx');
+  if (!detailsSec || !detailsFx) return;
+
+  const detailsSpots = [
+    [50, 7], [34, 14], [66, 14],
+    [22, 28], [78, 28], [50, 40],
+    [20, 52], [80, 52], [50, 62],
+    [40, 80], [48, 78], [56, 80],
+    [26, 90], [74, 90]
+  ];
+  detailsSpots.forEach(([x, y], i) => {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.style.left = x + '%'; s.style.top = y + '%';
+    s.style.setProperty('--t', (1.8 + Math.random() * 2.1).toFixed(2) + 's');
+    s.style.setProperty('--dl', (1.4 + i * .25).toFixed(2) + 's');
+    detailsFx.appendChild(s);
+  });
+
+  let detailsLive = 0;
+  let detailsActive = false;
+
+  function detailsPetal(x, y, burst) {
+    if (detailsLive > 28) return;
+    detailsLive++;
+    const DW = detailsSec.clientWidth, DH = detailsSec.clientHeight;
+    const k = DW / 941;
+    const roll = Math.random();
+    let p;
+    if (roll < .55) {
+      p = document.createElement('img');
+      p.src = Math.random() < .68 ? 'assets/story-petal.png' : 'assets/marigold.webp';
+      p.alt = '';
+      const size = (11 + Math.random() * 11) * k * 2.1;
+      p.style.width = size + 'px';
+    } else {
+      p = document.createElement('div');
+      const size = (6 + Math.random() * 8) * k * 2.1;
+      const pink = Math.random() < .6;
+      p.style.cssText = `width:${size}px;height:${size * 1.45}px;border-radius:50% 0 50% 0;background:${pink ? 'linear-gradient(135deg,#f8a4b8,#d94b6b)' : 'linear-gradient(135deg,#ffb03a,#f06a0c)'};box-shadow:inset 0 0 3px rgba(0,0,0,.14)`;
+    }
+    p.classList.add('petal');
+    detailsFx.appendChild(p);
+    const sx = x ?? Math.random() * DW;
+    const sy = y ?? -50;
+    const drift = (Math.random() - .5) * DW * (burst ? .85 : .32);
+    const endY = DH + 70;
+    const dur = burst ? 2400 + Math.random() * 1600 : 7200 + Math.random() * 4800;
+    const rot = (Math.random() - .5) * 840;
+    const frames = burst
+      ? [
+          { transform: `translate(${sx}px,${sy}px) rotate(0) scale(.3)`, opacity: 1 },
+          { transform: `translate(${sx + drift * .5}px,${sy - 110 - Math.random() * 150}px) rotate(${rot * .3}deg) scale(1)`, opacity: 1, offset: .25 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg) scale(.9)`, opacity: .88 }
+        ]
+      : [
+          { transform: `translate(${sx}px,${sy}px) rotate(0)`, opacity: 0 },
+          { transform: `translate(${sx + drift * .4}px,${endY * .3}px) rotate(${rot * .3}deg)`, opacity: .92, offset: .2 },
+          { transform: `translate(${sx - drift * .3}px,${endY * .65}px) rotate(${rot * .7}deg)`, opacity: .88, offset: .6 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg)`, opacity: .55 }
+        ];
+    const a = p.animate(frames, { duration: dur, easing: burst ? 'cubic-bezier(.2,.6,.4,1)' : 'linear', fill: 'forwards' });
+    a.onfinish = () => { p.remove(); detailsLive--; };
+  }
+
+  const detailsIo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !detailsActive) {
+        detailsActive = true;
+        detailsSec.classList.add('in-view');
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) setTimeout(() => detailsPetal(), i * 380);
+          setInterval(() => { if (!document.hidden) detailsPetal(); }, 1400);
+        }, 2000);
+      }
+    });
+  }, { threshold: 0.14 });
+  detailsIo.observe(detailsSec);
+
+  detailsSec.addEventListener('pointerdown', e => {
+    const r = detailsSec.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    for (let i = 0; i < 14; i++) detailsPetal(x, y, true);
+  });
+
+  // ==================== MOMENTS SECTION ANIMATIONS ====================
+  const momentsSec = document.getElementById('moments-sec');
+  const momentsFx = document.getElementById('moments-fx');
+  if (!momentsSec || !momentsFx) return;
+
+  const momentsSpots = [
+    [50, 5], [34, 13], [66, 13],
+    [22, 28], [78, 28], [50, 51],
+    [16, 56], [84, 56], [50, 67],
+    [16, 74], [84, 74], [50, 88],
+    [24, 92], [76, 92]
+  ];
+  momentsSpots.forEach(([x, y], i) => {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.style.left = x + '%'; s.style.top = y + '%';
+    s.style.setProperty('--t', (1.8 + Math.random() * 2.1).toFixed(2) + 's');
+    s.style.setProperty('--dl', (1.4 + i * .24).toFixed(2) + 's');
+    momentsFx.appendChild(s);
+  });
+
+  let momentsLive = 0;
+  let momentsActive = false;
+
+  function momentsPetal(x, y, burst) {
+    if (momentsLive > 28) return;
+    momentsLive++;
+    const MW = momentsSec.clientWidth, MH = momentsSec.clientHeight;
+    const k = MW / 941;
+    const roll = Math.random();
+    let p;
+    if (roll < .55) {
+      p = document.createElement('img');
+      p.src = Math.random() < .68 ? 'assets/story-petal.png' : 'assets/marigold.webp';
+      p.alt = '';
+      const size = (11 + Math.random() * 11) * k * 2.1;
+      p.style.width = size + 'px';
+    } else {
+      p = document.createElement('div');
+      const size = (6 + Math.random() * 8) * k * 2.1;
+      const pink = Math.random() < .62;
+      p.style.cssText = `width:${size}px;height:${size * 1.45}px;border-radius:50% 0 50% 0;background:${pink ? 'linear-gradient(135deg,#f8a4b8,#d94b6b)' : 'linear-gradient(135deg,#ffb03a,#f06a0c)'};box-shadow:inset 0 0 3px rgba(0,0,0,.14)`;
+    }
+    p.classList.add('petal');
+    momentsFx.appendChild(p);
+    const sx = x ?? Math.random() * MW;
+    const sy = y ?? -50;
+    const drift = (Math.random() - .5) * MW * (burst ? .85 : .32);
+    const endY = MH + 70;
+    const dur = burst ? 2400 + Math.random() * 1600 : 7200 + Math.random() * 4800;
+    const rot = (Math.random() - .5) * 840;
+    const frames = burst
+      ? [
+          { transform: `translate(${sx}px,${sy}px) rotate(0) scale(.3)`, opacity: 1 },
+          { transform: `translate(${sx + drift * .5}px,${sy - 110 - Math.random() * 150}px) rotate(${rot * .3}deg) scale(1)`, opacity: 1, offset: .25 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg) scale(.9)`, opacity: .88 }
+        ]
+      : [
+          { transform: `translate(${sx}px,${sy}px) rotate(0)`, opacity: 0 },
+          { transform: `translate(${sx + drift * .4}px,${endY * .3}px) rotate(${rot * .3}deg)`, opacity: .92, offset: .2 },
+          { transform: `translate(${sx - drift * .3}px,${endY * .65}px) rotate(${rot * .7}deg)`, opacity: .88, offset: .6 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg)`, opacity: .55 }
+        ];
+    const a = p.animate(frames, { duration: dur, easing: burst ? 'cubic-bezier(.2,.6,.4,1)' : 'linear', fill: 'forwards' });
+    a.onfinish = () => { p.remove(); momentsLive--; };
+  }
+
+  const momentsIo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !momentsActive) {
+        momentsActive = true;
+        momentsSec.classList.add('in-view');
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) setTimeout(() => momentsPetal(), i * 380);
+          setInterval(() => { if (!document.hidden) momentsPetal(); }, 1400);
+        }, 2000);
+      }
+    });
+  }, { threshold: 0.02 });
+  momentsIo.observe(momentsSec);
+
+  momentsSec.addEventListener('pointerdown', e => {
+    const r = momentsSec.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    for (let i = 0; i < 14; i++) momentsPetal(x, y, true);
+  });
+
+  // ==================== THANK YOU SECTION ANIMATIONS ====================
+  const thankyouSec = document.getElementById('thankyou-sec');
+  const thankyouFx = document.getElementById('thankyou-fx');
+  if (!thankyouSec || !thankyouFx) return;
+
+  const tySpots = [
+    [50, 5], [30, 10], [70, 10],
+    [20, 24], [80, 24], [50, 31],
+    [26, 42], [74, 42], [50, 50],
+    [25, 72], [75, 72], [50, 88],
+    [20, 92], [80, 92]
+  ];
+  tySpots.forEach(([x, y], i) => {
+    const s = document.createElement('span');
+    s.className = 'spark';
+    s.style.left = x + '%'; s.style.top = y + '%';
+    s.style.setProperty('--t', (1.8 + Math.random() * 2.1).toFixed(2) + 's');
+    s.style.setProperty('--dl', (1.4 + i * .24).toFixed(2) + 's');
+    thankyouFx.appendChild(s);
+  });
+
+  let tyLive = 0;
+  let tyActive = false;
+  const tyBells = [...thankyouSec.querySelectorAll('[data-bell]')];
+
+  function tyPetal(x, y, burst) {
+    if (tyLive > 28) return;
+    tyLive++;
+    const TW = thankyouSec.clientWidth, TH = thankyouSec.clientHeight;
+    const k = TW / 941;
+    const roll = Math.random();
+    let p;
+    if (roll < .55) {
+      p = document.createElement('img');
+      p.src = Math.random() < .68 ? 'assets/story-petal.png' : 'assets/marigold.webp';
+      p.alt = '';
+      const size = (11 + Math.random() * 11) * k * 2.1;
+      p.style.width = size + 'px';
+    } else {
+      p = document.createElement('div');
+      const size = (6 + Math.random() * 8) * k * 2.1;
+      const pink = Math.random() < .62;
+      p.style.cssText = `width:${size}px;height:${size * 1.45}px;border-radius:50% 0 50% 0;background:${pink ? 'linear-gradient(135deg,#f8a4b8,#d94b6b)' : 'linear-gradient(135deg,#ffb03a,#f06a0c)'};box-shadow:inset 0 0 3px rgba(0,0,0,.14)`;
+    }
+    p.classList.add('petal');
+    thankyouFx.appendChild(p);
+    const sx = x ?? Math.random() * TW;
+    const sy = y ?? -50;
+    const drift = (Math.random() - .5) * TW * (burst ? .85 : .32);
+    const endY = TH + 70;
+    const dur = burst ? 2400 + Math.random() * 1600 : 7200 + Math.random() * 4800;
+    const rot = (Math.random() - .5) * 840;
+    const frames = burst
+      ? [
+          { transform: `translate(${sx}px,${sy}px) rotate(0) scale(.3)`, opacity: 1 },
+          { transform: `translate(${sx + drift * .5}px,${sy - 110 - Math.random() * 150}px) rotate(${rot * .3}deg) scale(1)`, opacity: 1, offset: .25 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg) scale(.9)`, opacity: .88 }
+        ]
+      : [
+          { transform: `translate(${sx}px,${sy}px) rotate(0)`, opacity: 0 },
+          { transform: `translate(${sx + drift * .4}px,${endY * .3}px) rotate(${rot * .3}deg)`, opacity: .92, offset: .2 },
+          { transform: `translate(${sx - drift * .3}px,${endY * .65}px) rotate(${rot * .7}deg)`, opacity: .88, offset: .6 },
+          { transform: `translate(${sx + drift}px,${endY}px) rotate(${rot}deg)`, opacity: .55 }
+        ];
+    const a = p.animate(frames, { duration: dur, easing: burst ? 'cubic-bezier(.2,.6,.4,1)' : 'linear', fill: 'forwards' });
+    a.onfinish = () => { p.remove(); tyLive--; };
+  }
+
+  const tyIo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !tyActive) {
+        tyActive = true;
+        thankyouSec.classList.add('in-view');
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) setTimeout(() => tyPetal(), i * 380);
+          setInterval(() => { if (!document.hidden) tyPetal(); }, 1400);
+          setInterval(() => {
+            if (!document.hidden && tyBells.length) {
+              ring(tyBells[Math.floor(Math.random() * tyBells.length)]);
+            }
+          }, 4500);
+        }, 1800);
+      }
+    });
+  }, { threshold: 0.02 });
+  tyIo.observe(thankyouSec);
+
+  thankyouSec.addEventListener('pointerdown', e => {
+    const r = thankyouSec.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    for (let i = 0; i < 14; i++) tyPetal(x, y, true);
+    tyBells.forEach((b, i) => setTimeout(() => ring(b), i * 110));
+  });
+
+})();
+</script>
+</body>
+</html>
